@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiCheckCircle, FiSliders, FiShield, FiArrowRight } from "react-icons/fi";
+import { FiCheckCircle, FiSliders, FiShield, FiTool, FiArrowRight } from "react-icons/fi";
 import { StaggerGrid, StaggerItem } from "../animation/MotionPrimitives";
 import "./Services.css";
 
@@ -17,7 +17,7 @@ const FEATURES = [
     code: "SVC-02",
     title: "Installation & Commissioning",
     text: "Dedicated engineering team for executing mechanical, electrical, and instrumentation-oriented turnkey projects.",
-    highlights: ["End-to-End Loop Testing", "Installation of Tailor-Made Solutions", "Rapid Site Handover"],
+    highlights: ["End-to-End Loop Testing", "Tailor-Made Solutions to Suit the Process", "Rapid Site Handover"],
   },
   {
     icon: <FiShield aria-hidden="true" />,
@@ -25,6 +25,13 @@ const FEATURES = [
     title: "Annual Maintenance Contract",
     text: "Comprehensive preventive & breakdown maintenance contracts for PLC, DCS, field instruments, and control valve assemblies.",
     highlights: ["PLC & DCS Health Audits", "Preventive Servicing", "Priority Spare Support"],
+  },
+  {
+    icon: <FiTool aria-hidden="true" />,
+    code: "SVC-04",
+    title: "Valve Reconditioning Service",
+    text: "Complete overhauling, seat & seal replacement, lapping, actuator servicing, and pressure testing to restore valves to factory-grade performance.",
+    highlights: ["Seat, Seal & Trim Renewal", "Actuator & Positioner Overhaul", "Hydrostatic & Seat Leakage Testing"],
   },
 ];
 
