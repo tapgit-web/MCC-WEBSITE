@@ -30,7 +30,7 @@ const FEATURES = [
     icon: <FiTool aria-hidden="true" />,
     code: "SVC-04",
     title: "Valve Reconditioning Service",
-    text: "Complete overhauling, seat & seal replacement, lapping, actuator servicing, and pressure testing to restore valves to factory-grade performance.",
+    text: "Seat, seal, or trim set replacement, top automation, and complete reconditioning to restore valves to brand-new performance.",
     highlights: ["Seat, Seal & Trim Renewal", "Actuator & Positioner Overhaul", "Hydro, Pneumatic & N2 Testing"],
   },
 ];
