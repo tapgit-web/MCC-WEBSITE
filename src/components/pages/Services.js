@@ -31,7 +31,7 @@ const FEATURES = [
     code: "SVC-04",
     title: "Valve Reconditioning Service",
     text: "Complete overhauling, seat & seal replacement, lapping, actuator servicing, and pressure testing to restore valves to factory-grade performance.",
-    highlights: ["Seat, Seal & Trim Renewal", "Actuator & Positioner Overhaul", "Hydrostatic & Seat Leakage Testing"],
+    highlights: ["Seat, Seal & Trim Renewal", "Actuator & Positioner Overhaul", "Hydro, Pneumatic & N2 Testing"],
   },
 ];
 
