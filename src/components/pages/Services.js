@@ -31,7 +31,11 @@ const FEATURES = [
     code: "SVC-04",
     title: "Valve Reconditioning Service",
     text: "Seat, seal, or trim set replacement, top automation, and complete reconditioning to restore valves to brand-new performance.",
-    highlights: ["Seat, Seal & Trim Renewal", "Actuator & Positioner Overhaul", "Hydro, Pneumatic & N2 Testing"],
+    highlights: [
+      "Spares Like Seat, Stem, Plug or Diaphragm Available",
+      "Actuator and Positioner Reconditioning",
+      "Hydro, Pneumatic & N2 Testing Facility",
+    ],
   },
 ];
 
