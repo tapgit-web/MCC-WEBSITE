@@ -149,7 +149,7 @@ const AboutUs = () => {
                   <li>
                     <span className="cira-timeline__year">TAILOR-MADE ENGINEERING</span>
                     <p className="cira-timeline__text">
-                      Custom-developed valves and instrumentation engineered to exact process criticality and client demands.
+                      Custom-developed valves and instruments engineered to exact process criticality and client demands.
                     </p>
                   </li>
                 </ul>
