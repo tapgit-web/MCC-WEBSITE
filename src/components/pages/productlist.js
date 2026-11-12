@@ -23,7 +23,7 @@ const CARD_DATA = [
     iconSrc: flowImg,
     theme: "blue",
     type: "Flow Measurement",
-    subtitle: "Electromagnetic, Coriolis mass, vortex, ultrasonic & thermal mass flowmeters.",
+    subtitle: "Electromagnetic, Coriolis, vortex, ultrasonic & thermal mass flowmeters.",
   },
   {
     title: "Level Measurement",
