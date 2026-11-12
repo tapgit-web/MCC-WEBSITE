@@ -1,0 +1,408 @@
+/* ==========================================================================
+   About Us & Founder Leadership Pages
+   ========================================================================== */
+
+.cira-about-nav-strip {
+  background: var(--cira-surface);
+  border-bottom: 1px solid var(--cira-border);
+  padding-block: 1rem;
+}
+
+.cira-about-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cira-about-section {
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+  background: var(--cira-surface);
+}
+
+.cira-about-section--muted {
+  background: var(--cira-surface-muted);
+  border-block: 1px solid var(--cira-border);
+}
+
+.cira-about-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .cira-about-intro-grid {
+    grid-template-columns: 1.25fr 0.75fr;
+  }
+}
+
+.cira-prose-title {
+  font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+  font-weight: 700;
+  color: var(--cira-navy-900);
+  margin-block-end: 1rem;
+}
+
+.cira-prose p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--cira-text-secondary);
+  margin-block-end: 1.25rem;
+}
+
+.cira-milestone-card {
+  background: var(--cira-navy-900);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.cira-milestone-card h3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-block-end: 1.5rem;
+}
+
+.cira-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.cira-timeline li {
+  position: relative;
+  padding-inline-start: 1.5rem;
+  border-inline-start: 2px solid rgba(248, 113, 113, 0.45);
+}
+
+.cira-timeline li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -6px;
+  inset-block-start: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cira-red-500);
+}
+
+.cira-timeline__year {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fca5a5;
+  margin-block-end: 0.2rem;
+}
+
+.cira-timeline__text {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.cira-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-block-start: 2rem;
+}
+
+.cira-about-pillar {
+  background: var(--cira-surface);
+  border: 1px solid var(--cira-border);
+  border-radius: var(--radius-md);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.cira-about-pillar__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--cira-red-50);
+  color: var(--cira-red-600);
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  margin-block-end: 1rem;
+}
+
+.cira-about-pillar h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-block-end: 0.45rem;
+}
+
+.cira-about-pillar p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--cira-text-muted);
+  line-height: 1.55;
+}
+
+.cira-vertical-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-block-start: 1.25rem;
+}
+
+.cira-vertical-pill {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cira-navy-800);
+  background: var(--cira-surface-subtle);
+  border: 1px solid var(--cira-border);
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+}
+
+/* Client-Engineered Products & Turnkey Banner */
+.cira-custom-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+@media (max-width: 991px) {
+  .cira-custom-products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .cira-custom-products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cira-custom-product-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--cira-surface);
+  border: 1px solid var(--cira-border);
+  border-top: 3px solid var(--cira-red-600);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cira-custom-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.cira-custom-product-card__media {
+  height: 230px;
+  padding: 1rem;
+  background: linear-gradient(180deg, #f1f5f9 0%, #e8eef6 100%);
+  border-bottom: 1px solid var(--cira-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cira-custom-product-card__media img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(6, 15, 33, 0.1);
+  transition: transform 0.35s ease;
+}
+
+.cira-custom-product-card:hover .cira-custom-product-card__media img {
+  transform: scale(1.03);
+}
+
+.cira-custom-product-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem 1.5rem 1.5rem;
+}
+
+.cira-custom-product-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 0.75rem;
+}
+
+.cira-custom-product-card__client {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cira-blue-600);
+  background: var(--cira-blue-100);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+
+.cira-custom-product-card__check {
+  color: var(--cira-red-600);
+  font-size: 1.1rem;
+}
+
+.cira-custom-product-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cira-navy-900);
+  margin-block-end: 0.5rem;
+}
+
+.cira-custom-product-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--cira-text-secondary);
+}
+
+.cira-turnkey-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: var(--cira-navy-900);
+  color: #ffffff;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 992px) {
+  .cira-turnkey-banner {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.cira-turnkey-banner h3 {
+  color: #ffffff;
+  font-size: 1.35rem;
+  margin-block-end: 0.4rem;
+}
+
+.cira-turnkey-banner p {
+  color: rgba(226, 232, 240, 0.88);
+  font-size: 0.96rem;
+  max-width: 650px;
+}
+
+/* Founder & Leadership Profiles */
+.cira-leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-block-end: 3rem;
+}
+
+.cira-leader-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--cira-surface);
+  border: 1px solid var(--cira-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 640px) {
+  .cira-leader-card {
+    grid-template-columns: 230px 1fr;
+  }
+}
+
+.cira-leader-card__media {
+  position: relative;
+  background: var(--cira-surface-subtle);
+  min-block-size: 280px;
+}
+
+.cira-leader-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.cira-leader-card__body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cira-leader-card__role {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cira-red-600);
+  margin-block-end: 0.35rem;
+}
+
+.cira-leader-card__name {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--cira-navy-900);
+  margin-block-end: 0.85rem;
+}
+
+.cira-leader-card__bio {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--cira-text-secondary);
+  margin-block-end: 0.75rem;
+}
+
+.cira-leader-card__bio:last-child {
+  margin-block-end: 0;
+}
+
+.cira-director-panel {
+  background: var(--cira-surface);
+  border: 1px solid var(--cira-border);
+  border-inline-start: 4px solid var(--cira-red-600);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.cira-director-panel h3 {
+  font-size: 1.35rem;
+  margin-block-end: 0.35rem;
+}
+
+.cira-director-panel__role {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cira-blue-600);
+  margin-block-end: 0.85rem;
+}
+
+.cira-director-panel p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--cira-text-secondary);
+}

@@ -1,0 +1,197 @@
+/* ==========================================================================
+   Product Details Datasheet Layout
+   ========================================================================== */
+
+.cira-details-page {
+  background: var(--cira-surface-muted);
+  min-block-size: 75dvh;
+}
+
+.cira-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-block-end: 0.85rem;
+  transition: background-color 0.15s ease;
+}
+
+.cira-back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cira-details-body {
+  padding-block: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.cira-details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .cira-details-grid {
+    grid-template-columns: 380px 1fr;
+  }
+
+  .cira-details-visual {
+    position: sticky;
+    inset-block-start: 100px;
+  }
+}
+
+.cira-details-img-box {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--cira-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 1.75rem 2rem;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  box-shadow: var(--shadow-sm);
+  margin-block-end: 1rem;
+}
+
+.cira-details-cat-badge {
+  position: absolute;
+  inset-block-start: 1rem;
+  inset-inline-start: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--cira-surface-subtle);
+  color: var(--cira-navy-800);
+  border: 1px solid var(--cira-border);
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+}
+
+.cira-details-img {
+  max-width: 100%;
+  max-height: 270px;
+  object-fit: contain;
+}
+
+.cira-details-cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.cira-details-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cira-details-card {
+  background: #ffffff;
+  border: 1px solid var(--cira-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.cira-details-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-block-end: 0.9rem;
+  margin-block-end: 1.15rem;
+  border-bottom: 1px solid var(--cira-border);
+  color: var(--cira-navy-900);
+}
+
+.cira-details-card__head h2 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.cira-details-desc {
+  color: var(--cira-text-secondary);
+  line-height: 1.7;
+  margin-block-end: 1.5rem;
+}
+
+.cira-details-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem;
+  background: var(--cira-surface-muted);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--cira-border);
+}
+
+.cira-details-meta-grid dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cira-text-muted);
+  margin-block-end: 0.2rem;
+}
+
+.cira-details-meta-grid dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--cira-navy-900);
+  font-size: 0.92rem;
+}
+
+.cira-table-wrap {
+  overflow-x: auto;
+}
+
+.cira-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.cira-specs-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cira-text-muted);
+  background: var(--cira-surface-muted);
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--cira-border-strong);
+}
+
+.cira-specs-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--cira-border);
+  color: var(--cira-text-secondary);
+}
+
+.cira-specs-table tbody tr:hover {
+  background: var(--cira-surface-muted);
+}
+
+.cira-spec-num {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--cira-text-muted);
+  width: 48px;
+}
+
+.cira-spec-desc {
+  font-weight: 600;
+  color: var(--cira-navy-900);
+}

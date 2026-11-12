@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Services Section
+   ========================================================================== */
+
+.cira-services {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  background: var(--cira-surface);
+}
+
+.cira-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.cira-service-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background: var(--cira-surface);
+  border: 1px solid var(--cira-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.cira-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--cira-blue-600);
+}
+
+.cira-service-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 1.25rem;
+}
+
+.cira-service-card__icon {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--cira-navy-900), var(--cira-blue-600));
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  box-shadow: 0 8px 18px rgba(17, 70, 169, 0.22);
+}
+
+.cira-service-card__code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cira-text-muted);
+  background: var(--cira-surface-muted);
+  border: 1px solid var(--cira-border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+}
+
+.cira-service-card__title {
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: var(--cira-navy-900);
+  margin-block-end: 0.65rem;
+}
+
+.cira-service-card__text {
+  color: var(--cira-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-block-end: 1.25rem;
+}
+
+.cira-service-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1 1 auto;
+}
+
+.cira-service-card__list li {
+  position: relative;
+  padding-inline-start: 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--cira-navy-800);
+}
+
+.cira-service-card__list li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.52em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cira-red-600);
+}
+
+.cira-service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--cira-red-600);
+  text-decoration: none;
+  padding-block-start: 1rem;
+  border-top: 1px solid var(--cira-border);
+  transition: gap 0.2s ease, color 0.15s ease;
+}
+
+.cira-service-card__link:hover {
+  color: var(--cira-navy-900);
+  gap: 0.7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cira-service-card,
+  .cira-service-card__link {
+    transition: none;
+  }
+  .cira-service-card:hover {
+    transform: none;
+  }
+}
