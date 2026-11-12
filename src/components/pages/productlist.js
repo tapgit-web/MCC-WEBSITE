@@ -51,7 +51,7 @@ const CARD_DATA = [
     iconSrc: vibrationImg,
     theme: "red",
     type: "vibration monitoring",
-    subtitle: "Proximity sensors, velocity, displacement & bearing condition monitoring units.",
+    subtitle: "Accelerometers, vibration sensors, transmitters & condition monitoring systems.",
   },
   {
     title: "Control & ON/OFF Valves",
