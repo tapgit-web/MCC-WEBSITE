@@ -38,7 +38,7 @@ export const Services = () => {
             Beyond Supply: End-to-End Engineering Support
           </h2>
           <p className="cira-section-subtitle">
-            From accredited calibration to turnkey commissioning and ongoing AMC, we keep your process plants running at peak accuracy.
+            From accredited calibration to turnkey commissioning and ongoing AMC, we keep your process plants running at peak efficiency.
           </p>
         </div>
 
