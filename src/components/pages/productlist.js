@@ -19,6 +19,13 @@ const countByType = (targetType) => {
 
 const CARD_DATA = [
   {
+    title: "Control & ON/OFF Valves",
+    iconSrc: valveImg,
+    theme: "orange",
+    type: "Valve",
+    subtitle: "Manual, pneumatic, and electric operated valves with special liners for aggressive media.",
+  },
+  {
     title: "Flow Measurement",
     iconSrc: flowImg,
     theme: "blue",
@@ -52,13 +59,6 @@ const CARD_DATA = [
     theme: "red",
     type: "vibration monitoring",
     subtitle: "Accelerometers, vibration sensors, transmitters & condition monitoring systems.",
-  },
-  {
-    title: "Control & ON/OFF Valves",
-    iconSrc: valveImg,
-    theme: "orange",
-    type: "Valve",
-    subtitle: "Manual, pneumatic, and electric operated valves with special liners for aggressive media.",
   },
   {
     title: "PLC & DCS Solutions",
