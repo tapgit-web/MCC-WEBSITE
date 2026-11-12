@@ -65,7 +65,7 @@ const CARD_DATA = [
     iconSrc: plcImg,
     theme: "blue",
     type: "PLC & DCS Solutions",
-    subtitle: "Turnkey control panels, SCADA/HMI engineering, migrations & AMC support.",
+    subtitle: "Turnkey automation systems, SCADA/HMI panels, migrations & AMC support.",
     isFeatured: true,
   },
 ];
