@@ -143,7 +143,7 @@ const AboutUs = () => {
                   <li>
                     <span className="cira-timeline__year">50+ TURNKEY PROJECTS</span>
                     <p className="cira-timeline__text">
-                      Executed across Government and Private sectors—ranging from Water Distribution systems to Net Zero projects.
+                      Executed projects across Government and Private sectors—ranging from Water Distribution systems to Net Zero.
                     </p>
                   </li>
                   <li>
