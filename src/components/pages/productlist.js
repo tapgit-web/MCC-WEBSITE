@@ -58,7 +58,7 @@ const CARD_DATA = [
     iconSrc: valveImg,
     theme: "orange",
     type: "Valve",
-    subtitle: "2-PC/3-PC/3-4 way ball valves, FEP/PFA lined & lug/wafer butterfly valves.",
+    subtitle: "Manual, pneumatic, and electric operated valves with special liners for aggressive media.",
   },
   {
     title: "PLC & DCS Solutions",
