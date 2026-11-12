@@ -80,7 +80,7 @@ function Productlist() {
             Precision Instruments and Control Equipments
           </h2>
           <p className="cira-section-subtitle">
-            Select a category to inspect technical catalogues, datasheets, and detailed product specifications.
+            Select a category to check out technical catalogues, datasheets, and detailed product specifications.
           </p>
         </div>
 
