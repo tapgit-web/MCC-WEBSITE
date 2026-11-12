@@ -32,7 +32,7 @@ const FEATURES = [
     title: "Valve Reconditioning Service",
     text: "Seat, seal, or trim set replacement, top automation, and complete reconditioning to restore valves to brand-new performance.",
     highlights: [
-      "Spares Like Seat, Stem, Plug or Diaphragm Available",
+      "Spares Like Seat, Stem, Plug or Diaphragm Support",
       "Actuator and Positioner Reconditioning",
       "Hydro, Pneumatic & N2 Testing Facility",
     ],
