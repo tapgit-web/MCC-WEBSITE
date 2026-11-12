@@ -10,7 +10,7 @@ const FEATURES = [
     code: "SVC-01",
     title: "NABL Calibration",
     text: "NABL accredited calibration for flow, temperature, pressure, level, and electrical parameters with traceable certification and minimal plant downtime.",
-    highlights: ["Traceable Standards", "Flow, Temp, Pressure, Level & Electrical", "Audit-Ready Certificates"],
+    highlights: ["Traceable Standards", "On-site & NABL Accredited Lab Calibration Services Available", "Audit-Ready Certificates"],
   },
   {
     icon: <FiSliders aria-hidden="true" />,
