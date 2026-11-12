@@ -77,7 +77,7 @@ function Productlist() {
         <div className="cira-section-header">
           <span className="cira-eyebrow">Product Portfolio</span>
           <h2 id="categories-heading" className="cira-section-title">
-            Precision Instrumentation &amp; Control Equipment
+            Precision Instruments and Control Equipments
           </h2>
           <p className="cira-section-subtitle">
             Select a category to inspect technical catalogues, datasheets, and detailed product specifications.
