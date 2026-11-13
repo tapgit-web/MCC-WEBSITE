@@ -18,7 +18,7 @@ const OFFERINGS = [
   {
     icon: <FiCpu aria-hidden="true" />,
     title: "Automation (PLC / DCS)",
-    desc: "System integration, control panel engineering, commissioning, and annual maintenance contracts.",
+    desc: "System integration, control panel design, commissioning, and annual maintenance contracts.",
     link: "/products/plc%20%26%20dcs%20solutions",
   },
   {
