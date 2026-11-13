@@ -79,11 +79,8 @@ const Footer = () => {
                 <FaMapMarkerAlt aria-hidden="true" />
                 <span>#5/2 Ranga Pillai Garden Street, Old Washermanpet, Chennai – 600021</span>
               </p>
-              <a href="mailto:sales@mcc-inst.in">
-                <FaEnvelope aria-hidden="true" /> sales@mcc-inst.in
-              </a>
-              <a href="tel:+918072007294">
-                <FaPhoneAlt aria-hidden="true" /> +91 80720 07294
+              <a href="tel:+919841387998">
+                <FaPhoneAlt aria-hidden="true" /> +91 98413 87998
               </a>
             </div>
           </div>

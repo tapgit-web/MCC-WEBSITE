@@ -125,14 +125,8 @@ function ContactSection() {
                     <a href="tel:+919087589685">
                       <FiPhoneCall aria-hidden="true" /> +91 90875 89685
                     </a>
-                    <a href="tel:+918072007294">
-                      <FiPhoneCall aria-hidden="true" /> +91 80720 07294
-                    </a>
                     <a href="mailto:kpr@mcc-inst.in">
                       <FiMail aria-hidden="true" /> kpr@mcc-inst.in
-                    </a>
-                    <a href="mailto:sales@mcc-inst.in">
-                      <FiMail aria-hidden="true" /> sales@mcc-inst.in
                     </a>
                   </div>
                 </article>
@@ -148,17 +142,8 @@ function ContactSection() {
                     </span>
                   </p>
                   <div className="cira-office-card__links">
-                    <a href="tel:+919087589685">
-                      <FiPhoneCall aria-hidden="true" /> +91 90875 89685
-                    </a>
-                    <a href="tel:+918072007294">
-                      <FiPhoneCall aria-hidden="true" /> +91 80720 07294
-                    </a>
-                    <a href="mailto:sales@mcc-inst.in">
-                      <FiMail aria-hidden="true" /> sales@mcc-inst.in
-                    </a>
-                    <a href="mailto:kpr@mcc-inst.in">
-                      <FiMail aria-hidden="true" /> kpr@mcc-inst.in
+                    <a href="tel:+919841387998">
+                      <FiPhoneCall aria-hidden="true" /> +91 98413 87998
                     </a>
                   </div>
                 </article>
@@ -188,7 +173,7 @@ function ContactSection() {
                 </p>
                 <div className="d-flex flex-wrap gap-2 mt-3">
                   <a
-                    href={`mailto:sales@mcc-inst.in?subject=${mailtoSubject}&body=${mailtoBody}`}
+                    href={`mailto:kpr@mcc-inst.in?subject=${mailtoSubject}&body=${mailtoBody}`}
                     className="cira-btn cira-btn--primary"
                   >
                     <FiMail aria-hidden="true" /> Send via Email
