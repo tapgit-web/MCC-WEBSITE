@@ -24,7 +24,7 @@ const OFFERINGS = [
   {
     icon: <FiSettings aria-hidden="true" />,
     title: "Valves (Control & ON/OFF)",
-    desc: "Ball valves, FEP/PFA lined butterfly valves, and pneumatic actuators for critical process isolation.",
+    desc: "Ball valves, FEP/PFA lined butterfly valves, and pneumatic actuators for critical processes.",
     link: "/products/valve",
   },
 ];
