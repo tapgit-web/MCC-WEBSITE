@@ -32,9 +32,9 @@ const OFFERINGS = [
 const CUSTOM_CLIENT_PRODUCTS = [
   {
     client: "L&T",
-    name: "Viton Seated PN40 WNRV",
+    name: "Viton Seated PN40 Wafer Type Non-Return Valve",
     image: vitonWnrvImg,
-    detail: "Custom high-pressure Wafer Non-Return Valve engineered with Viton sealing for demanding industrial service.",
+    detail: "Custom high-pressure Wafer Type Non-Return Valve engineered with Viton sealing for demanding industrial service.",
   },
   {
     client: "Hikal",
