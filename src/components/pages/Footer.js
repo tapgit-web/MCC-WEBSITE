@@ -68,8 +68,14 @@ const Footer = () => {
               <a href="mailto:kpr@mcc-inst.in">
                 <FaEnvelope aria-hidden="true" /> kpr@mcc-inst.in
               </a>
+              <a href="mailto:sales@mcc-inst.in">
+                <FaEnvelope aria-hidden="true" /> sales@mcc-inst.in
+              </a>
               <a href="tel:+919087589685">
                 <FaPhoneAlt aria-hidden="true" /> +91 90875 89685
+              </a>
+              <a href="tel:+918072007294">
+                <FaPhoneAlt aria-hidden="true" /> +91 80720 07294
               </a>
             </div>
 

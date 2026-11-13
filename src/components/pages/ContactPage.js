@@ -125,8 +125,14 @@ function ContactSection() {
                     <a href="tel:+919087589685">
                       <FiPhoneCall aria-hidden="true" /> +91 90875 89685
                     </a>
+                    <a href="tel:+918072007294">
+                      <FiPhoneCall aria-hidden="true" /> +91 80720 07294
+                    </a>
                     <a href="mailto:kpr@mcc-inst.in">
                       <FiMail aria-hidden="true" /> kpr@mcc-inst.in
+                    </a>
+                    <a href="mailto:sales@mcc-inst.in">
+                      <FiMail aria-hidden="true" /> sales@mcc-inst.in
                     </a>
                   </div>
                 </article>
