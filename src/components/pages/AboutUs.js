@@ -46,7 +46,7 @@ const CUSTOM_CLIENT_PRODUCTS = [
     client: "Hikal",
     name: "3-Way PFA Lined Ball Valve",
     image: threeWayPfaImg,
-    detail: "Corrosion-resistant 3-Way PFA Lined Ball Valve designed specifically for aggressive chemical media diversion.",
+    detail: "Corrosion-resistant 3-Way PFA Lined Ball Valve designed specifically for aggressive media.",
   },
 ];
 
