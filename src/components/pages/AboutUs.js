@@ -40,7 +40,7 @@ const CUSTOM_CLIENT_PRODUCTS = [
     client: "Hikal",
     name: "Double Disc BFV",
     image: doubleDiscBfvImg,
-    detail: "Tailor-made Double Disc Butterfly Valve built to meet specialized chemical process isolation requirements.",
+    detail: "Tailor-made Double Disc Butterfly Valve built for backfilling applications.",
   },
   {
     client: "Hikal",
