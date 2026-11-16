@@ -25,7 +25,25 @@ const Navbar = () => {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
+  const timeoutRef = useRef(null);
   const location = useLocation();
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setDropdownOpen(false);
+    }, 180);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   // Close menus on route change
   useEffect(() => {
@@ -98,28 +116,33 @@ const Navbar = () => {
 
               <li
                 ref={dropdownRef}
-                className="cira-nav-dropdown"
-                onMouseEnter={() => setDropdownOpen(true)}
-                onMouseLeave={() => setDropdownOpen(false)}
+                className={`cira-nav-dropdown ${dropdownOpen ? "is-open" : ""}`}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
-                <button
-                  type="button"
-                  className={`cira-nav-link cira-nav-dropdown-btn ${
-                    location.pathname.startsWith("/product") ? "is-active" : ""
+                <NavLink
+                  to="/products"
+                  className={({ isActive }) => `cira-nav-link cira-nav-dropdown-btn ${
+                    isActive || location.pathname.startsWith("/product") ? "is-active" : ""
                   }`}
                   aria-expanded={dropdownOpen}
                   aria-controls="desktop-products-menu"
-                  onClick={() => setDropdownOpen((prev) => !prev)}
+                  onClick={() => setDropdownOpen(false)}
                 >
                   <span>Products</span>
                   <FiChevronDown
                     className={`cira-chevron ${dropdownOpen ? "is-rotated" : ""}`}
                     aria-hidden="true"
                   />
-                </button>
+                </NavLink>
 
                 {dropdownOpen && (
-                  <div id="desktop-products-menu" className="cira-mega-menu">
+                  <div
+                    id="desktop-products-menu"
+                    className="cira-mega-menu"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
                     <div className="cira-mega-menu__grid">
                       <div className="cira-mega-col">
                         <span className="cira-mega-col__title">Process Instrumentation</span>
@@ -219,18 +242,27 @@ const Navbar = () => {
               </NavLink>
 
               <div className="cira-mobile-accordion">
-                <button
-                  type="button"
-                  className="cira-mobile-link cira-mobile-accordion-btn"
-                  aria-expanded={mobileProductsOpen}
-                  onClick={() => setMobileProductsOpen((prev) => !prev)}
-                >
-                  <span>Products</span>
-                  <FiChevronDown
-                    className={`cira-chevron ${mobileProductsOpen ? "is-rotated" : ""}`}
-                    aria-hidden="true"
-                  />
-                </button>
+                <div className="cira-mobile-accordion-header">
+                  <NavLink
+                    to="/products"
+                    className="cira-mobile-link cira-mobile-link--lead"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <span>Products</span>
+                  </NavLink>
+                  <button
+                    type="button"
+                    className="cira-mobile-toggle-btn"
+                    aria-label="Toggle products categories"
+                    aria-expanded={mobileProductsOpen}
+                    onClick={() => setMobileProductsOpen((prev) => !prev)}
+                  >
+                    <FiChevronDown
+                      className={`cira-chevron ${mobileProductsOpen ? "is-rotated" : ""}`}
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
 
                 {mobileProductsOpen && (
                   <div className="cira-mobile-sublinks">
