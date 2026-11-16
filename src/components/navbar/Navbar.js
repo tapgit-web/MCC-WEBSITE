@@ -241,7 +241,7 @@ const Navbar = () => {
                     >
                       All Products Catalogue
                     </Link>
-                    <span className="cira-mobile-subhead">Instrumentation</span>
+                    <span className="cira-mobile-subhead">Process Instrumentation</span>
                     {INSTRUMENTATION_CATEGORIES.map((item) => (
                       <Link
                         key={item.slug}
@@ -252,7 +252,7 @@ const Navbar = () => {
                         {item.label}
                       </Link>
                     ))}
-                    <span className="cira-mobile-subhead">Valves &amp; Automation</span>
+                    <span className="cira-mobile-subhead">Control Valves &amp; Automation</span>
                     {VALVE_AUTOMATION_CATEGORIES.map((item) => (
                       <Link
                         key={item.slug}

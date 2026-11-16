@@ -8,17 +8,32 @@ import AnimatedSection from "../animation/AnimatedSection";
 import { StaggerGrid, StaggerItem } from "../animation/MotionPrimitives";
 import plcImg from "../images/product/plc_dcs_real.jpg";
 
-const FILTER_PILLS = [
-  { label: "All Products", slug: "" },
-  { label: "Flow", slug: "flow measurement" },
-  { label: "Level", slug: "level measurement" },
-  { label: "Pressure", slug: "pressure measurement" },
-  { label: "Temperature", slug: "temperature measurement" },
-  { label: "Vibration", slug: "vibration monitoring" },
-  { label: "Ball Valve", slug: "ball valve" },
-  { label: "Butterfly Valve", slug: "butterfly valve" },
-  { label: "PLC & DCS", slug: "plc & dcs solutions" },
+const INSTRUMENTATION_CATEGORIES = [
+  { label: "Flow Measurement", slug: "flow measurement" },
+  { label: "Level Measurement", slug: "level measurement" },
+  { label: "Pressure Measurement", slug: "pressure measurement" },
+  { label: "Temperature Measurement", slug: "temperature measurement" },
+  { label: "Vibration Monitoring", slug: "vibration monitoring" },
 ];
+
+const VALVE_AUTOMATION_CATEGORIES = [
+  { label: "Ball Valves", slug: "ball valve" },
+  { label: "Butterfly Valves", slug: "butterfly valve" },
+  { label: "All Control & ON/OFF Valves", slug: "valve" },
+  { label: "PLC & DCS Solutions", slug: "plc & dcs solutions" },
+];
+
+const CATEGORY_META = {
+  "flow measurement": { title: "Flow Measurement", group: "Process Instrumentation" },
+  "level measurement": { title: "Level Measurement", group: "Process Instrumentation" },
+  "pressure measurement": { title: "Pressure Measurement", group: "Process Instrumentation" },
+  "temperature measurement": { title: "Temperature Measurement", group: "Process Instrumentation" },
+  "vibration monitoring": { title: "Vibration Monitoring", group: "Process Instrumentation" },
+  "ball valve": { title: "Ball Valves", group: "Control Valves & Automation" },
+  "butterfly valve": { title: "Butterfly Valves", group: "Control Valves & Automation" },
+  "valve": { title: "All Control & ON/OFF Valves", group: "Control Valves & Automation" },
+  "plc & dcs solutions": { title: "PLC & DCS Solutions", group: "Control Valves & Automation" },
+};
 
 function ProductLists() {
   const { category } = useParams();
@@ -35,11 +50,25 @@ function ProductLists() {
     return products.filter((p) => {
       const productType = (p.type || "").trim().toLowerCase();
       const productTypeName = (p.typeName || "").trim().toLowerCase();
-      const matchesCat =
-        !selectedCategory ||
-        selectedCategory === "all" ||
-        productType === selectedCategory ||
-        productTypeName === selectedCategory;
+
+      let matchesCat = false;
+      if (!selectedCategory || selectedCategory === "all") {
+        matchesCat = true;
+      } else if (selectedCategory === "valve") {
+        matchesCat = productType === "valve";
+      } else if (selectedCategory === "ball valve") {
+        matchesCat =
+          productTypeName === "ball valve" ||
+          (productType === "valve" && (p.name || "").toLowerCase().includes("ball"));
+      } else if (selectedCategory === "butterfly valve") {
+        matchesCat =
+          productTypeName === "butterfly valve" ||
+          (productType === "valve" && (p.name || "").toLowerCase().includes("butterfly"));
+      } else {
+        matchesCat =
+          productType === selectedCategory ||
+          productTypeName === selectedCategory;
+      }
 
       if (!matchesCat) return false;
       if (!query) return true;
@@ -52,9 +81,11 @@ function ProductLists() {
     });
   }, [selectedCategory, searchQuery]);
 
-  const displayTitle = selectedCategory
-    ? selectedCategory.replace(/\b\w/g, (c) => c.toUpperCase())
-    : "All Industrial Products";
+  const displayTitle =
+    CATEGORY_META[selectedCategory]?.title ||
+    (selectedCategory ? selectedCategory.replace(/\b\w/g, (c) => c.toUpperCase()) : "All Industrial Products");
+
+  const categoryGroup = CATEGORY_META[selectedCategory]?.group;
 
   const handleOpenPdf = (item) => {
     setSelectedPdfProduct(item);
@@ -71,9 +102,11 @@ function ProductLists() {
       {/* Page Hero */}
       <section className="cira-page-hero">
         <div className="cira-container cira-page-hero__inner">
-          <span className="cira-eyebrow cira-eyebrow--dark">Technical Catalogue</span>
+          <span className="cira-eyebrow cira-eyebrow--dark">
+            {categoryGroup ? categoryGroup : "Technical Catalogue"}
+          </span>
           <h1 className="cira-page-hero__title">
-            {displayTitle} <span>Solutions</span>
+            {displayTitle}
           </h1>
           <p className="cira-page-hero__desc">
             Browse specifications, engineering datasheets, and official PDF catalogues across Madras Control Components’ process instrumentation and valve range.
@@ -85,36 +118,25 @@ function ProductLists() {
             {selectedCategory && (
               <>
                 <span className="cira-breadcrumb__sep" aria-hidden="true">/</span>
-                <span aria-current="page" className="text-capitalize">{selectedCategory}</span>
+                <span aria-current="page">{displayTitle}</span>
               </>
             )}
           </nav>
         </div>
       </section>
 
-      {/* Category Filter Pills & Search */}
+      {/* Category Filter Navigation & Search */}
       <div className="cira-catalog-toolbar">
         <div className="cira-container">
-          <div className="cira-toolbar-row">
-            <div className="cira-pill-scroll" role="navigation" aria-label="Product category filters">
-              {FILTER_PILLS.map((pill) => {
-                const isActive =
-                  (!selectedCategory && pill.slug === "") ||
-                  selectedCategory === pill.slug;
-                return (
-                  <button
-                    key={pill.label}
-                    type="button"
-                    className={`cira-filter-pill ${isActive ? "is-active" : ""}`}
-                    aria-pressed={isActive}
-                    onClick={() =>
-                      navigate(pill.slug ? `/products/${encodeURIComponent(pill.slug)}` : "/products")
-                    }
-                  >
-                    {pill.label}
-                  </button>
-                );
-              })}
+          <div className="cira-toolbar-top">
+            <div className="cira-toolbar-primary">
+              <Link
+                to="/products"
+                className={`cira-filter-pill cira-filter-pill--all ${!selectedCategory ? "is-active" : ""}`}
+                aria-pressed={!selectedCategory}
+              >
+                All Products
+              </Link>
             </div>
 
             {!isPlcDcs && (
@@ -133,6 +155,48 @@ function ProductLists() {
                 />
               </search>
             )}
+          </div>
+
+          <div className="cira-toolbar-groups" role="navigation" aria-label="Product categories">
+            {/* Process Instrumentation */}
+            <div className="cira-filter-group">
+              <span className="cira-filter-group__label">Process Instrumentation</span>
+              <div className="cira-filter-group__pills">
+                {INSTRUMENTATION_CATEGORIES.map((item) => {
+                  const isActive = selectedCategory === item.slug;
+                  return (
+                    <Link
+                      key={item.slug}
+                      to={`/products/${encodeURIComponent(item.slug)}`}
+                      className={`cira-filter-pill ${isActive ? "is-active" : ""}`}
+                      aria-pressed={isActive}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Control Valves & Automation */}
+            <div className="cira-filter-group">
+              <span className="cira-filter-group__label">Control Valves &amp; Automation</span>
+              <div className="cira-filter-group__pills">
+                {VALVE_AUTOMATION_CATEGORIES.map((item) => {
+                  const isActive = selectedCategory === item.slug;
+                  return (
+                    <Link
+                      key={item.slug}
+                      to={`/products/${encodeURIComponent(item.slug)}`}
+                      className={`cira-filter-pill ${isActive ? "is-active" : ""}`}
+                      aria-pressed={isActive}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
