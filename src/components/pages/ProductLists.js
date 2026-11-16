@@ -1,12 +1,97 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { FiSearch, FiFileText, FiList, FiCpu, FiCheckCircle, FiArrowRight } from "react-icons/fi";
+import { FiSearch, FiFileText, FiList, FiCpu, FiCheckCircle, FiArrowRight, FiGrid } from "react-icons/fi";
 import products from "../../data/products";
 import "./ProductLists.css";
 import PdfViewerModal from "../common/PdfViewerModal";
 import AnimatedSection from "../animation/AnimatedSection";
 import { StaggerGrid, StaggerItem } from "../animation/MotionPrimitives";
+
+import flowImg from "../images/product/flow/ELECTROMAGNETICFLOWMETER.jpg";
+import levelImg from "../images/product/level/RadarLevel.jpeg";
+import pressureImg from "../images/product/pressure/dpt.png";
+import tempImg from "../images/product/temperature/head.png";
+import vibrationImg from "../images/product/vibration/sensors.png";
+import ballValveImg from "../images/product/valve/2pcsballvalve.png";
+import bfvImg from "../images/product/valve/LineedButterfly.png";
+import valveImg from "../images/product/valve/3pcsballvalve.png";
 import plcImg from "../images/product/plc_dcs_real.jpg";
+
+const CATEGORY_SHOWCASE = [
+  {
+    group: "Process Instrumentation",
+    items: [
+      {
+        name: "Flow Meter",
+        slug: "flow measurement",
+        image: flowImg,
+        count: "5 Models",
+        subtitle: "Electromagnetic, Ultrasonic, Solar Powered, BTU & Thermal Mass flow meters.",
+      },
+      {
+        name: "Level Measurement",
+        slug: "level measurement",
+        image: levelImg,
+        count: "8 Models",
+        subtitle: "Radar, guided wave radar, ultrasonic, DP, capacitance & float level switches.",
+      },
+      {
+        name: "Pressure Measurement",
+        slug: "pressure measurement",
+        image: pressureImg,
+        count: "2 Models",
+        subtitle: "Absolute, gauge & differential pressure transmitters for extreme processes.",
+      },
+      {
+        name: "Temperature Measurement",
+        slug: "temperature measurement",
+        image: tempImg,
+        count: "2 Models",
+        subtitle: "Head mount and float mount industrial temperature sensors & transmitters.",
+      },
+      {
+        name: "Vibration Monitoring",
+        slug: "vibration monitoring",
+        image: vibrationImg,
+        count: "6 Models",
+        subtitle: "Accelerometers, velocity sensors, displacement & bearing condition monitors.",
+      },
+    ],
+  },
+  {
+    group: "Control Valves & Automation",
+    items: [
+      {
+        name: "Ball Valves",
+        slug: "ball valve",
+        image: ballValveImg,
+        count: "7 Models",
+        subtitle: "2-piece, 3-piece, 3/4-way, wafer, UPVC, PP & FEP/PFA lined ball valves.",
+      },
+      {
+        name: "Butterfly Valves",
+        slug: "butterfly valve",
+        image: bfvImg,
+        count: "4 Models",
+        subtitle: "Rubber lined, double flanged, lug type & FEP/PFA lined butterfly valves.",
+      },
+      {
+        name: "All Control & ON/OFF Valves",
+        slug: "valve",
+        image: valveImg,
+        count: "11 Models",
+        subtitle: "Complete portfolio of pneumatic actuator & manual control valves.",
+      },
+      {
+        name: "PLC & DCS Solutions",
+        slug: "plc & dcs solutions",
+        image: plcImg,
+        count: "Turnkey",
+        subtitle: "System integration, control panel engineering & SCADA commissioning.",
+      },
+    ],
+  },
+];
 
 const INSTRUMENTATION_CATEGORIES = [
   { label: "Flow Meter", slug: "flow measurement" },
@@ -47,9 +132,16 @@ function ProductLists() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedPdfProduct, setSelectedPdfProduct] = useState(null);
   const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
+  const [showAllFlat, setShowAllFlat] = useState(false);
 
   const selectedCategory = decodeURIComponent(category || "").trim().toLowerCase();
   const isPlcDcs = selectedCategory === "plc & dcs solutions";
+
+  useEffect(() => {
+    setShowAllFlat(false);
+  }, [category]);
+
+  const showCategoriesOverview = !selectedCategory && !searchQuery && !showAllFlat;
 
   const isPillActive = (slug) => {
     if (!selectedCategory && slug === "") return true;
@@ -352,23 +444,90 @@ function ProductLists() {
               </div>
             </section>
           </AnimatedSection>
+        ) : showCategoriesOverview ? (
+          <div className="cira-catalog-overview">
+            <div className="cira-catalog-overview__header">
+              <div>
+                <span className="cira-eyebrow">Product Portfolio</span>
+                <h2 className="cira-catalog-overview__title">Instrumentation &amp; Valve Categories</h2>
+                <p className="cira-catalog-overview__subtitle">
+                  Select any category to view its dedicated products, technical specifications, and sub-categories.
+                </p>
+              </div>
+              <button
+                type="button"
+                className="cira-btn cira-btn--outline cira-btn--sm"
+                onClick={() => setShowAllFlat(true)}
+              >
+                <FiList aria-hidden="true" /> View All 40+ Products
+              </button>
+            </div>
+
+            {CATEGORY_SHOWCASE.map((section) => (
+              <section key={section.group} className="cira-showcase-section">
+                <div className="cira-showcase-section__head">
+                  <h3 className="cira-showcase-section__tag">{section.group}</h3>
+                  <div className="cira-showcase-section__line" aria-hidden="true" />
+                </div>
+
+                <div className="cira-showcase-grid">
+                  {section.items.map((cat) => (
+                    <Link
+                      key={cat.slug}
+                      to={`/products/${encodeURIComponent(cat.slug)}`}
+                      className="cira-cat-tile"
+                    >
+                      <div className="cira-cat-tile__media">
+                        <img
+                          src={cat.image}
+                          alt={cat.name}
+                          className="cira-cat-tile__img"
+                          loading="lazy"
+                        />
+                        <span className="cira-cat-tile__badge">{cat.count}</span>
+                      </div>
+                      <div className="cira-cat-tile__body">
+                        <h4 className="cira-cat-tile__title">{cat.name}</h4>
+                        <p className="cira-cat-tile__desc">{cat.subtitle}</p>
+                        <div className="cira-cat-tile__action">
+                          <span>View {cat.name} Products</span>
+                          <FiArrowRight aria-hidden="true" />
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
         ) : (
           <>
             <div className="cira-catalog-meta">
               <p className="m-0">
                 Showing <strong>{filtered.length}</strong>{" "}
                 {filtered.length === 1 ? "product" : "products"}
-                {selectedCategory ? ` in ${displayTitle}` : ""}
+                {selectedCategory ? ` in ${displayTitle}` : " across all categories"}
               </p>
-              {searchQuery && (
-                <button
-                  type="button"
-                  className="cira-clear-btn"
-                  onClick={() => setSearchQuery("")}
-                >
-                  Clear filter
-                </button>
-              )}
+              <div className="d-flex align-items-center gap-2">
+                {!selectedCategory && showAllFlat && (
+                  <button
+                    type="button"
+                    className="cira-clear-btn"
+                    onClick={() => setShowAllFlat(false)}
+                  >
+                    <FiGrid aria-hidden="true" /> View by Categories
+                  </button>
+                )}
+                {searchQuery && (
+                  <button
+                    type="button"
+                    className="cira-clear-btn"
+                    onClick={() => setSearchQuery("")}
+                  >
+                    Clear search
+                  </button>
+                )}
+              </div>
             </div>
 
             {filtered.length === 0 ? (
