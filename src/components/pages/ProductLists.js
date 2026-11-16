@@ -9,7 +9,7 @@ import { StaggerGrid, StaggerItem } from "../animation/MotionPrimitives";
 import plcImg from "../images/product/plc_dcs_real.jpg";
 
 const INSTRUMENTATION_CATEGORIES = [
-  { label: "Flow Measurement", slug: "flow measurement" },
+  { label: "Flow Meter", slug: "flow measurement" },
   { label: "Level Measurement", slug: "level measurement" },
   { label: "Pressure Measurement", slug: "pressure measurement" },
   { label: "Temperature Measurement", slug: "temperature measurement" },
@@ -24,14 +24,20 @@ const VALVE_AUTOMATION_CATEGORIES = [
 ];
 
 const CATEGORY_META = {
-  "flow measurement": { title: "Flow Measurement", group: "Process Instrumentation" },
+  "flow measurement": { title: "Flow Meter", group: "Process Instrumentation" },
+  "flow meter": { title: "Flow Meter", group: "Process Instrumentation" },
+  "flow": { title: "Flow Meter", group: "Process Instrumentation" },
   "level measurement": { title: "Level Measurement", group: "Process Instrumentation" },
+  "level meter": { title: "Level Measurement", group: "Process Instrumentation" },
   "pressure measurement": { title: "Pressure Measurement", group: "Process Instrumentation" },
   "temperature measurement": { title: "Temperature Measurement", group: "Process Instrumentation" },
   "vibration monitoring": { title: "Vibration Monitoring", group: "Process Instrumentation" },
   "ball valve": { title: "Ball Valves", group: "Control Valves & Automation" },
+  "ball valves": { title: "Ball Valves", group: "Control Valves & Automation" },
   "butterfly valve": { title: "Butterfly Valves", group: "Control Valves & Automation" },
+  "butterfly valves": { title: "Butterfly Valves", group: "Control Valves & Automation" },
   "valve": { title: "All Control & ON/OFF Valves", group: "Control Valves & Automation" },
+  "valves": { title: "All Control & ON/OFF Valves", group: "Control Valves & Automation" },
   "plc & dcs solutions": { title: "PLC & DCS Solutions", group: "Control Valves & Automation" },
 };
 
@@ -45,6 +51,66 @@ function ProductLists() {
   const selectedCategory = decodeURIComponent(category || "").trim().toLowerCase();
   const isPlcDcs = selectedCategory === "plc & dcs solutions";
 
+  const isPillActive = (slug) => {
+    if (!selectedCategory && slug === "") return true;
+    if (selectedCategory === slug) return true;
+    if (
+      (slug === "flow measurement" || slug === "flow meter") &&
+      (selectedCategory === "flow measurement" || selectedCategory === "flow meter" || selectedCategory === "flow")
+    ) {
+      return true;
+    }
+    if (
+      slug === "level measurement" &&
+      (selectedCategory === "level measurement" || selectedCategory === "level meter" || selectedCategory === "level")
+    ) {
+      return true;
+    }
+    if (
+      slug === "pressure measurement" &&
+      (selectedCategory === "pressure measurement" || selectedCategory === "pressure")
+    ) {
+      return true;
+    }
+    if (
+      slug === "temperature measurement" &&
+      (selectedCategory === "temperature measurement" || selectedCategory === "temperature")
+    ) {
+      return true;
+    }
+    if (
+      slug === "vibration monitoring" &&
+      (selectedCategory === "vibration monitoring" || selectedCategory === "vibration")
+    ) {
+      return true;
+    }
+    if (
+      slug === "valve" &&
+      (selectedCategory === "valve" || selectedCategory === "valves")
+    ) {
+      return true;
+    }
+    if (
+      slug === "ball valve" &&
+      (selectedCategory === "ball valve" || selectedCategory === "ball valves")
+    ) {
+      return true;
+    }
+    if (
+      slug === "butterfly valve" &&
+      (selectedCategory === "butterfly valve" || selectedCategory === "butterfly valves")
+    ) {
+      return true;
+    }
+    if (
+      slug === "plc & dcs solutions" &&
+      (selectedCategory === "plc & dcs solutions" || selectedCategory === "plc & dcs")
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   const filtered = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
     return products.filter((p) => {
@@ -54,13 +120,51 @@ function ProductLists() {
       let matchesCat = false;
       if (!selectedCategory || selectedCategory === "all") {
         matchesCat = true;
-      } else if (selectedCategory === "valve") {
+      } else if (
+        selectedCategory === "flow measurement" ||
+        selectedCategory === "flow meter" ||
+        selectedCategory === "flow-meter" ||
+        selectedCategory === "flow"
+      ) {
+        matchesCat = productType === "flow measurement";
+      } else if (
+        selectedCategory === "level measurement" ||
+        selectedCategory === "level meter" ||
+        selectedCategory === "level"
+      ) {
+        matchesCat = productType === "level measurement";
+      } else if (
+        selectedCategory === "pressure measurement" ||
+        selectedCategory === "pressure"
+      ) {
+        matchesCat = productType === "pressure measurement";
+      } else if (
+        selectedCategory === "temperature measurement" ||
+        selectedCategory === "temperature"
+      ) {
+        matchesCat = productType === "temperature measurement";
+      } else if (
+        selectedCategory === "vibration monitoring" ||
+        selectedCategory === "vibration"
+      ) {
+        matchesCat = productType === "vibration monitoring";
+      } else if (
+        selectedCategory === "valve" ||
+        selectedCategory === "valves" ||
+        selectedCategory === "control valves"
+      ) {
         matchesCat = productType === "valve";
-      } else if (selectedCategory === "ball valve") {
+      } else if (
+        selectedCategory === "ball valve" ||
+        selectedCategory === "ball valves"
+      ) {
         matchesCat =
           productTypeName === "ball valve" ||
           (productType === "valve" && (p.name || "").toLowerCase().includes("ball"));
-      } else if (selectedCategory === "butterfly valve") {
+      } else if (
+        selectedCategory === "butterfly valve" ||
+        selectedCategory === "butterfly valves"
+      ) {
         matchesCat =
           productTypeName === "butterfly valve" ||
           (productType === "valve" && (p.name || "").toLowerCase().includes("butterfly"));
@@ -163,7 +267,7 @@ function ProductLists() {
               <span className="cira-filter-group__label">Process Instrumentation</span>
               <div className="cira-filter-group__pills">
                 {INSTRUMENTATION_CATEGORIES.map((item) => {
-                  const isActive = selectedCategory === item.slug;
+                  const isActive = isPillActive(item.slug);
                   return (
                     <Link
                       key={item.slug}
@@ -183,7 +287,7 @@ function ProductLists() {
               <span className="cira-filter-group__label">Control Valves &amp; Automation</span>
               <div className="cira-filter-group__pills">
                 {VALVE_AUTOMATION_CATEGORIES.map((item) => {
-                  const isActive = selectedCategory === item.slug;
+                  const isActive = isPillActive(item.slug);
                   return (
                     <Link
                       key={item.slug}

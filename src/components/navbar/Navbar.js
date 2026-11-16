@@ -5,7 +5,7 @@ import logoImg from "../images/mcc_logo.jpg";
 import "./navbar.css";
 
 const INSTRUMENTATION_CATEGORIES = [
-  { label: "Flow Measurement", slug: "flow measurement" },
+  { label: "Flow Meter", slug: "flow measurement" },
   { label: "Level Measurement", slug: "level measurement" },
   { label: "Pressure Measurement", slug: "pressure measurement" },
   { label: "Temperature Measurement", slug: "temperature measurement" },
@@ -25,23 +25,31 @@ const Navbar = () => {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
-  const timeoutRef = useRef(null);
+  const closeTimeoutRef = useRef(null);
   const location = useLocation();
 
   const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
     setDropdownOpen(true);
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+    closeTimeoutRef.current = setTimeout(() => {
       setDropdownOpen(false);
-    }, 180);
+    }, 200);
   };
 
   useEffect(() => {
     return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -116,15 +124,17 @@ const Navbar = () => {
 
               <li
                 ref={dropdownRef}
-                className={`cira-nav-dropdown ${dropdownOpen ? "is-open" : ""}`}
+                className="cira-nav-dropdown"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
                 <NavLink
                   to="/products"
-                  className={({ isActive }) => `cira-nav-link cira-nav-dropdown-btn ${
-                    isActive || location.pathname.startsWith("/product") ? "is-active" : ""
-                  }`}
+                  className={({ isActive }) =>
+                    `cira-nav-link cira-nav-dropdown-btn ${
+                      isActive || location.pathname.startsWith("/product") ? "is-active" : ""
+                    }`
+                  }
                   aria-expanded={dropdownOpen}
                   aria-controls="desktop-products-menu"
                   onClick={() => setDropdownOpen(false)}
@@ -242,18 +252,22 @@ const Navbar = () => {
               </NavLink>
 
               <div className="cira-mobile-accordion">
-                <div className="cira-mobile-accordion-header">
+                <div className="cira-mobile-accordion-row">
                   <NavLink
                     to="/products"
-                    className="cira-mobile-link cira-mobile-link--lead"
+                    className={({ isActive }) =>
+                      `cira-mobile-link cira-mobile-link--products ${
+                        isActive || location.pathname.startsWith("/product") ? "active" : ""
+                      }`
+                    }
                     onClick={() => setMenuOpen(false)}
                   >
                     <span>Products</span>
                   </NavLink>
                   <button
                     type="button"
-                    className="cira-mobile-toggle-btn"
-                    aria-label="Toggle products categories"
+                    className="cira-mobile-accordion-toggle"
+                    aria-label="Toggle products submenu"
                     aria-expanded={mobileProductsOpen}
                     onClick={() => setMobileProductsOpen((prev) => !prev)}
                   >

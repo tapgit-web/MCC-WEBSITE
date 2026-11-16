@@ -43,7 +43,7 @@ const products = [
   // Flow Measurement (5 Core Products)
   {
     id: 1,
-    name: "Electromagnetic Flow Meter",
+    name: "ELECTROMAGNETIC FLOW METER",
     type: "Flow Measurement",
     price: 2999,
     image: Electromagnetic,
@@ -61,7 +61,7 @@ const products = [
   },
   {
     id: 2,
-    name: "Ultrasonic Flow Meter",
+    name: "ULTRASONIC FLOW METER",
     type: "Flow Measurement",
     price: 2999,
     image: Ultrasonic1,
@@ -78,7 +78,7 @@ const products = [
   },
   {
     id: 3,
-    name: "Solar Powered Flow Meter",
+    name: "SOLAR POWERED FLOW METER",
     type: "Flow Measurement",
     price: 2999,
     image: SolarPoweredFM,
@@ -95,7 +95,7 @@ const products = [
   },
   {
     id: 4,
-    name: "BTU Meter",
+    name: "BTU METER",
     type: "Flow Measurement",
     price: 2999,
     image: BtuMeter,
@@ -112,7 +112,7 @@ const products = [
   },
   {
     id: 5,
-    name: "Thermal Mass Flow Meter",
+    name: "THERMAL MASS FLOW METER",
     type: "Flow Measurement",
     price: 2999,
     image: ThermalMass,
