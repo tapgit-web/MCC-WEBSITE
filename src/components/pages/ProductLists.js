@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { FiSearch, FiFileText, FiList, FiCpu, FiCheckCircle, FiArrowRight, FiGrid } from "react-icons/fi";
+import { FiSearch, FiFileText, FiList, FiCpu, FiCheckCircle, FiArrowRight } from "react-icons/fi";
 import products from "../../data/products";
 import "./ProductLists.css";
 import PdfViewerModal from "../common/PdfViewerModal";
@@ -8,6 +8,10 @@ import AnimatedSection from "../animation/AnimatedSection";
 import { StaggerGrid, StaggerItem } from "../animation/MotionPrimitives";
 
 import flowImg from "../images/product/flow/ELECTROMAGNETICFLOWMETER.jpg";
+import Ultrasonic1 from "../images/product/flow/ULTRASONIC FLOWMETER.jpg";
+import SolarPoweredFM from "../images/product/flow/solar_powered_flowmeter.jpg";
+import BtuMeter from "../images/product/flow/btu_meter.jpg";
+import ThermalMass from "../images/product/flow/THERMAL MASS FLOWMETER1.jpg";
 import levelImg from "../images/product/level/RadarLevel.jpeg";
 import pressureImg from "../images/product/pressure/dpt.png";
 import tempImg from "../images/product/temperature/head.png";
@@ -17,77 +21,83 @@ import bfvImg from "../images/product/valve/LineedButterfly.png";
 import valveImg from "../images/product/valve/3pcsballvalve.png";
 import plcImg from "../images/product/plc_dcs_real.jpg";
 
-const CATEGORY_SHOWCASE = [
+const FLOW_TREE_DATA = [
   {
-    group: "Process Instrumentation",
+    heading: "1.ELECTROMAGNETIC FLOW METER",
     items: [
       {
-        name: "Flow Meter",
-        slug: "flow measurement",
+        id: 1,
+        number: "1.",
+        name: "insertion Type Electromagnetic Flow Meter SR1000i",
         image: flowImg,
-        count: "5 Models",
-        subtitle: "Electromagnetic, Ultrasonic, Solar Powered, BTU & Thermal Mass flow meters.",
+        pdf: "/pdf/Flow/1.EMF.pdf",
+        tag: "SR1000i",
+        specs: "Hot-Tap Insertion Spool | DN100 - DN3000 mm | IP68 Submersible",
       },
       {
-        name: "Level Measurement",
-        slug: "level measurement",
-        image: levelImg,
-        count: "8 Models",
-        subtitle: "Radar, guided wave radar, ultrasonic, DP, capacitance & float level switches.",
-      },
-      {
-        name: "Pressure Measurement",
-        slug: "pressure measurement",
-        image: pressureImg,
-        count: "2 Models",
-        subtitle: "Absolute, gauge & differential pressure transmitters for extreme processes.",
-      },
-      {
-        name: "Temperature Measurement",
-        slug: "temperature measurement",
-        image: tempImg,
-        count: "2 Models",
-        subtitle: "Head mount and float mount industrial temperature sensors & transmitters.",
-      },
-      {
-        name: "Vibration Monitoring",
-        slug: "vibration monitoring",
-        image: vibrationImg,
-        count: "6 Models",
-        subtitle: "Accelerometers, velocity sensors, displacement & bearing condition monitors.",
+        id: 2,
+        number: "2.",
+        name: "Battery Operated Electromagnetic Flow Meter SS1021",
+        image: flowImg,
+        pdf: "/pdf/Flow/1.EMF.pdf",
+        tag: "SS1021",
+        specs: "5-10 Year Battery Life | DN15 - DN1200 mm | GSM/4G Telemetry",
       },
     ],
   },
   {
-    group: "Control Valves & Automation",
+    heading: "2.ULTRASONIC FLOW METER",
     items: [
       {
-        name: "Ball Valves",
-        slug: "ball valve",
-        image: ballValveImg,
-        count: "7 Models",
-        subtitle: "2-piece, 3-piece, 3/4-way, wafer, UPVC, PP & FEP/PFA lined ball valves.",
+        id: 3,
+        number: "1.",
+        name: "Clamp On Type Ultrasonic Flow Meter",
+        image: Ultrasonic1,
+        pdf: "/pdf/Flow/6.Ultrasonic_clamp_FM.pdf",
+        tag: "Non-Invasive",
+        specs: "External Clamp-On Transducers | DN15 - DN6000 mm | Transit-Time",
       },
+    ],
+  },
+  {
+    heading: "3.SOLAR POWERED FLOW METER",
+    items: [
       {
-        name: "Butterfly Valves",
-        slug: "butterfly valve",
-        image: bfvImg,
-        count: "4 Models",
-        subtitle: "Rubber lined, double flanged, lug type & FEP/PFA lined butterfly valves.",
+        id: 4,
+        number: "1.",
+        name: "SOLAR POWERED FLOW METER",
+        image: SolarPoweredFM,
+        pdf: "/pdf/Flow/1.EMF.pdf",
+        tag: "Zero Grid",
+        specs: "Solar PV + LiFePO4 Battery | 30-Day Autonomy | 4G / IoT Ready",
       },
+    ],
+  },
+  {
+    heading: "4.BTU METER",
+    items: [
       {
-        name: "All Control & ON/OFF Valves",
-        slug: "valve",
-        image: valveImg,
-        count: "11 Models",
-        subtitle: "Complete portfolio of pneumatic actuator & manual control valves.",
+        id: 5,
+        number: "1.",
+        name: "BTU METER",
+        image: BtuMeter,
+        pdf: "/pdf/Flow/6.Ultrasonic_clamp_FM.pdf",
+        tag: "EN1434 Class 2",
+        specs: "Ultrasonic Flow Tube + Matched PT1000 RTDs | M-Bus / BACnet",
       },
+    ],
+  },
+  {
+    heading: "5.THERMAL MASS FLOW METER",
+    items: [
       {
-        name: "PLC & DCS Solutions",
-        slug: "plc & dcs solutions",
-        image: plcImg,
-        count: "Turnkey",
-        subtitle: "System integration, control panel engineering & SCADA commissioning.",
+        id: 6,
+        number: "1.",
+        name: "THERMAL MASS FLOW METER",
+        image: ThermalMass,
+        pdf: "/pdf/Flow/4.Thermalmass_FM.pdf",
+        tag: "Direct Mass",
+        specs: "Thermal Dispersion Sensor | Compressed Air & Biogas | 100:1 Turndown",
       },
     ],
   },
@@ -132,16 +142,20 @@ function ProductLists() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedPdfProduct, setSelectedPdfProduct] = useState(null);
   const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
-  const [showAllFlat, setShowAllFlat] = useState(false);
 
-  const selectedCategory = decodeURIComponent(category || "").trim().toLowerCase();
+  const selectedCategory = decodeURIComponent(category || "flow measurement").trim().toLowerCase();
   const isPlcDcs = selectedCategory === "plc & dcs solutions";
+  const isFlowPage =
+    selectedCategory === "flow measurement" ||
+    selectedCategory === "flow meter" ||
+    selectedCategory === "flow-meter" ||
+    selectedCategory === "flow";
 
   useEffect(() => {
-    setShowAllFlat(false);
-  }, [category]);
-
-  const showCategoriesOverview = !selectedCategory && !searchQuery && !showAllFlat;
+    if (!category) {
+      navigate("/products/flow%20measurement", { replace: true });
+    }
+  }, [category, navigate]);
 
   const isPillActive = (slug) => {
     if (!selectedCategory && slug === "") return true;
@@ -310,13 +324,9 @@ function ProductLists() {
           <nav className="cira-breadcrumb" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
             <span className="cira-breadcrumb__sep" aria-hidden="true">/</span>
-            <Link to="/products">Products</Link>
-            {selectedCategory && (
-              <>
-                <span className="cira-breadcrumb__sep" aria-hidden="true">/</span>
-                <span aria-current="page">{displayTitle}</span>
-              </>
-            )}
+            <span className="text-muted">{categoryGroup || "Products"}</span>
+            <span className="cira-breadcrumb__sep" aria-hidden="true">/</span>
+            <span aria-current="page">{displayTitle}</span>
           </nav>
         </div>
       </section>
@@ -325,14 +335,9 @@ function ProductLists() {
       <div className="cira-catalog-toolbar">
         <div className="cira-container">
           <div className="cira-toolbar-top">
-            <div className="cira-toolbar-primary">
-              <Link
-                to="/products"
-                className={`cira-filter-pill cira-filter-pill--all ${!selectedCategory ? "is-active" : ""}`}
-                aria-pressed={!selectedCategory}
-              >
-                All Products
-              </Link>
+            <div className="cira-toolbar-info">
+              <span className="cira-toolbar-tag">Instrumentation &amp; Valves</span>
+              <span className="cira-toolbar-cat-name">{displayTitle}</span>
             </div>
 
             {!isPlcDcs && (
@@ -344,7 +349,7 @@ function ProductLists() {
                 <input
                   id="catalog-search-input"
                   type="search"
-                  placeholder="Search instruments or valves..."
+                  placeholder="Search in this category..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="cira-catalog-search__input"
@@ -437,68 +442,87 @@ function ProductLists() {
                   <Link to="/Contact" className="cira-btn cira-btn--primary">
                     <FiCpu aria-hidden="true" /> Request Automation Proposal
                   </Link>
-                  <Link to="/products" className="cira-btn cira-btn--outline">
+                  <Link to="/products/flow%20measurement" className="cira-btn cira-btn--outline">
                     Browse Field Instruments <FiArrowRight aria-hidden="true" />
                   </Link>
                 </div>
               </div>
             </section>
           </AnimatedSection>
-        ) : showCategoriesOverview ? (
-          <div className="cira-catalog-overview">
-            <div className="cira-catalog-overview__header">
-              <div>
-                <span className="cira-eyebrow">Product Portfolio</span>
-                <h2 className="cira-catalog-overview__title">Instrumentation &amp; Valve Categories</h2>
-                <p className="cira-catalog-overview__subtitle">
-                  Select any category to view its dedicated products, technical specifications, and sub-categories.
-                </p>
+        ) : isFlowPage && !searchQuery ? (
+          <div className="cira-flow-tree-wrapper">
+            {/* Tree Root */}
+            <div className="cira-tree-root-container">
+              <div className="cira-tree-root-box">
+                <span className="cira-tree-root-text">flow measurement</span>
               </div>
-              <button
-                type="button"
-                className="cira-btn cira-btn--outline cira-btn--sm"
-                onClick={() => setShowAllFlat(true)}
-              >
-                <FiList aria-hidden="true" /> View All 40+ Products
-              </button>
+              <div className="cira-tree-stem-line" aria-hidden="true" />
+              <div className="cira-tree-bus-line" aria-hidden="true" />
             </div>
 
-            {CATEGORY_SHOWCASE.map((section) => (
-              <section key={section.group} className="cira-showcase-section">
-                <div className="cira-showcase-section__head">
-                  <h3 className="cira-showcase-section__tag">{section.group}</h3>
-                  <div className="cira-showcase-section__line" aria-hidden="true" />
-                </div>
+            {/* 5 Branch Columns matching Image 2 */}
+            <div className="cira-tree-grid">
+              {FLOW_TREE_DATA.map((col) => (
+                <div key={col.heading} className="cira-tree-branch">
+                  <div className="cira-tree-drop-line" aria-hidden="true" />
+                  <div className="cira-tree-header">
+                    <h3 className="cira-tree-heading">{col.heading}</h3>
+                  </div>
 
-                <div className="cira-showcase-grid">
-                  {section.items.map((cat) => (
-                    <Link
-                      key={cat.slug}
-                      to={`/products/${encodeURIComponent(cat.slug)}`}
-                      className="cira-cat-tile"
-                    >
-                      <div className="cira-cat-tile__media">
-                        <img
-                          src={cat.image}
-                          alt={cat.name}
-                          className="cira-cat-tile__img"
-                          loading="lazy"
-                        />
-                        <span className="cira-cat-tile__badge">{cat.count}</span>
-                      </div>
-                      <div className="cira-cat-tile__body">
-                        <h4 className="cira-cat-tile__title">{cat.name}</h4>
-                        <p className="cira-cat-tile__desc">{cat.subtitle}</p>
-                        <div className="cira-cat-tile__action">
-                          <span>View {cat.name} Products</span>
-                          <FiArrowRight aria-hidden="true" />
+                  <div className="cira-tree-box">
+                    {col.items.map((it) => (
+                      <article key={it.id} className="cira-tree-product">
+                        <div
+                          className="cira-tree-product__media"
+                          onClick={() => handleOpenPdf(it)}
+                          role="button"
+                          tabIndex={0}
+                          aria-label={`Open PDF catalogue for ${it.name}`}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              handleOpenPdf(it);
+                            }
+                          }}
+                        >
+                          <img
+                            src={it.image}
+                            alt={it.name}
+                            className="cira-tree-product__img"
+                            loading="lazy"
+                          />
+                          <span className="cira-tree-product__tag">{it.tag}</span>
                         </div>
-                      </div>
-                    </Link>
-                  ))}
+
+                        <div className="cira-tree-product__body">
+                          <h4 className="cira-tree-product__title">
+                            {it.name}
+                          </h4>
+                          <p className="cira-tree-product__specs">
+                            {it.specs}
+                          </p>
+                          <div className="cira-tree-product__actions">
+                            <button
+                              type="button"
+                              className="cira-btn cira-btn--primary cira-btn--xs"
+                              onClick={() => handleOpenPdf(it)}
+                            >
+                              <FiFileText aria-hidden="true" /> Catalogue
+                            </button>
+                            <Link
+                              to={`/product/${it.id}`}
+                              className="cira-btn cira-btn--outline cira-btn--xs"
+                            >
+                              <FiList aria-hidden="true" /> Details
+                            </Link>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
                 </div>
-              </section>
-            ))}
+              ))}
+            </div>
           </div>
         ) : (
           <>
@@ -506,28 +530,17 @@ function ProductLists() {
               <p className="m-0">
                 Showing <strong>{filtered.length}</strong>{" "}
                 {filtered.length === 1 ? "product" : "products"}
-                {selectedCategory ? ` in ${displayTitle}` : " across all categories"}
+                {selectedCategory ? ` in ${displayTitle}` : ""}
               </p>
-              <div className="d-flex align-items-center gap-2">
-                {!selectedCategory && showAllFlat && (
-                  <button
-                    type="button"
-                    className="cira-clear-btn"
-                    onClick={() => setShowAllFlat(false)}
-                  >
-                    <FiGrid aria-hidden="true" /> View by Categories
-                  </button>
-                )}
-                {searchQuery && (
-                  <button
-                    type="button"
-                    className="cira-clear-btn"
-                    onClick={() => setSearchQuery("")}
-                  >
-                    Clear search
-                  </button>
-                )}
-              </div>
+              {searchQuery && (
+                <button
+                  type="button"
+                  className="cira-clear-btn"
+                  onClick={() => setSearchQuery("")}
+                >
+                  Clear search
+                </button>
+              )}
             </div>
 
             {filtered.length === 0 ? (
@@ -539,10 +552,10 @@ function ProductLists() {
                   className="cira-btn cira-btn--navy"
                   onClick={() => {
                     setSearchQuery("");
-                    navigate("/products");
+                    navigate("/products/flow%20measurement");
                   }}
                 >
-                  View All Products
+                  View Flow Measurement
                 </button>
               </div>
             ) : (

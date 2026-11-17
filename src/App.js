@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation, Navigate } from "react-router-dom";
 import Navbar from './components/navbar/Navbar';
 import { Home } from './components/pages/Home';
 import AboutUs from './components/pages/AboutUs';
@@ -25,7 +25,7 @@ function AnimatedRoutes() {
         <Route path="/Contact" element={<ContactPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/founder" element={<Founder />} />
-        <Route path="/products" element={<ProductLists />} />
+        <Route path="/products" element={<Navigate to="/products/flow%20measurement" replace />} />
         <Route path="/products/:category" element={<ProductLists />} />
         <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>

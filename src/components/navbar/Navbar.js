@@ -1,32 +1,189 @@
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
-import { FiChevronDown, FiMenu, FiX, FiArrowRight } from "react-icons/fi";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
+import { FiChevronDown, FiChevronRight, FiMenu, FiX, FiArrowRight } from "react-icons/fi";
 import logoImg from "../images/mcc_logo.jpg";
 import "./navbar.css";
 
-const INSTRUMENTATION_CATEGORIES = [
-  { label: "Flow Meter", slug: "flow measurement" },
-  { label: "Level Measurement", slug: "level measurement" },
-  { label: "Pressure Measurement", slug: "pressure measurement" },
-  { label: "Temperature Measurement", slug: "temperature measurement" },
-  { label: "Vibration Monitoring", slug: "vibration monitoring" },
-];
-
-const VALVE_AUTOMATION_CATEGORIES = [
-  { label: "Ball Valves", slug: "ball valve" },
-  { label: "Butterfly Valves", slug: "butterfly valve" },
-  { label: "All Control & ON/OFF Valves", slug: "valve" },
-  { label: "PLC & DCS Solutions", slug: "plc & dcs solutions" },
+const MEGA_NAV_CATEGORIES = [
+  {
+    id: "flow",
+    label: "Flow Measurement",
+    slug: "flow measurement",
+    badge: "5 Sub-types",
+    sections: [
+      {
+        title: "1. ELECTROMAGNETIC FLOW METER",
+        items: [
+          { name: "1. Insertion Type Electromagnetic Flow Meter SR1000i", path: "/products/flow%20measurement" },
+          { name: "2. Battery Operated Electromagnetic Flow Meter SS1021", path: "/products/flow%20measurement" },
+        ],
+      },
+      {
+        title: "2. ULTRASONIC FLOW METER",
+        items: [
+          { name: "1. Clamp On Type Ultrasonic Flow Meter", path: "/products/flow%20measurement" },
+        ],
+      },
+      {
+        title: "3. SOLAR POWERED FLOW METER",
+        items: [
+          { name: "1. SOLAR POWERED FLOW METER", path: "/products/flow%20measurement" },
+        ],
+      },
+      {
+        title: "4. BTU METER",
+        items: [
+          { name: "1. BTU METER", path: "/products/flow%20measurement" },
+        ],
+      },
+      {
+        title: "5. THERMAL MASS FLOW METER",
+        items: [
+          { name: "1. THERMAL MASS FLOW METER", path: "/products/flow%20measurement" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "level",
+    label: "Level Measurement",
+    slug: "level measurement",
+    badge: "8 Models",
+    sections: [
+      {
+        title: "Non-Contact Level Sensors",
+        items: [
+          { name: "Radar Level Transmitter", path: "/products/level%20measurement" },
+          { name: "Guided Wave Radar Level", path: "/products/level%20measurement" },
+          { name: "Ultrasonic Level Transmitter", path: "/products/level%20measurement" },
+        ],
+      },
+      {
+        title: "Continuous & Hydrostatic",
+        items: [
+          { name: "Differential Pressure (DP) Level", path: "/products/level%20measurement" },
+          { name: "Hydrostatic Level Transmitter", path: "/products/level%20measurement" },
+          { name: "Capacitance Level Transmitter", path: "/products/level%20measurement" },
+        ],
+      },
+      {
+        title: "Point Level & Switches",
+        items: [
+          { name: "Point Level Switch", path: "/products/level%20measurement" },
+          { name: "Float Switch", path: "/products/level%20measurement" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "pressure",
+    label: "Pressure Measurement",
+    slug: "pressure measurement",
+    badge: "Transmitters",
+    sections: [
+      {
+        title: "Process Pressure Transmitters",
+        items: [
+          { name: "Absolute & Gauge Pressure Measurement", path: "/products/pressure%20measurement" },
+          { name: "Differential Pressure (DP) Flow & Level", path: "/products/pressure%20measurement" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "temperature",
+    label: "Temperature Measurement",
+    slug: "temperature measurement",
+    badge: "Transmitters",
+    sections: [
+      {
+        title: "Temperature Sensors & Heads",
+        items: [
+          { name: "Head Mount Temperature Transmitter", path: "/products/temperature%20measurement" },
+          { name: "Float Mount Temperature Sensor", path: "/products/temperature%20measurement" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "vibration",
+    label: "Vibration Monitoring",
+    slug: "vibration monitoring",
+    badge: "Condition Monitoring",
+    sections: [
+      {
+        title: "Sensors & Transmitters",
+        items: [
+          { name: "Industrial Vibration Sensors", path: "/products/vibration%20monitoring" },
+          { name: "Vibration Velocity - IRD301", path: "/products/vibration%20monitoring" },
+        ],
+      },
+      {
+        title: "Condition Monitoring Systems",
+        items: [
+          { name: "Vibration Velocity & Displacement - IRD306DP", path: "/products/vibration%20monitoring" },
+          { name: "Vibration Amplitude & Bearing Condition - IRD304B", path: "/products/vibration%20monitoring" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "valves",
+    label: "Control & ON/OFF Valves",
+    slug: "valve",
+    badge: "Ball & Butterfly",
+    sections: [
+      {
+        title: "Ball Valves",
+        items: [
+          { name: "2 Pcs Ball Valve", path: "/products/ball%20valve" },
+          { name: "3 Pcs Ball Valve", path: "/products/ball%20valve" },
+          { name: "3 / 4 Way Ball Valve", path: "/products/ball%20valve" },
+          { name: "Wafer Type Ball Valve", path: "/products/ball%20valve" },
+          { name: "FEP / PFA Lined Ball Valve", path: "/products/ball%20valve" },
+          { name: "UPVC & PP Ball Valves", path: "/products/ball%20valve" },
+        ],
+      },
+      {
+        title: "Butterfly Valves",
+        items: [
+          { name: "Rubber Lined Butterfly Valve", path: "/products/butterfly%20valve" },
+          { name: "Double Flanged Butterfly Valve", path: "/products/butterfly%20valve" },
+          { name: "Lug Type Butterfly Valve", path: "/products/butterfly%20valve" },
+          { name: "FEP / PFA Lined Butterfly Valve", path: "/products/butterfly%20valve" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "automation",
+    label: "PLC & DCS Solutions",
+    slug: "plc & dcs solutions",
+    badge: "Turnkey",
+    sections: [
+      {
+        title: "Industrial Automation Systems",
+        items: [
+          { name: "PLC / DCS Panel Design & Integration", path: "/products/plc%20%26%20dcs%20solutions" },
+          { name: "SCADA / HMI Visualization & Historians", path: "/products/plc%20%26%20dcs%20solutions" },
+          { name: "Legacy DCS Migration & Fieldbus", path: "/products/plc%20%26%20dcs%20solutions" },
+          { name: "Site Commissioning & AMC Support", path: "/products/plc%20%26%20dcs%20solutions" },
+        ],
+      },
+    ],
+  },
 ];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
   const closeTimeoutRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     if (closeTimeoutRef.current) {
@@ -42,7 +199,7 @@ const Navbar = () => {
     }
     closeTimeoutRef.current = setTimeout(() => {
       setDropdownOpen(false);
-    }, 200);
+    }, 250);
   };
 
   useEffect(() => {
@@ -95,6 +252,8 @@ const Navbar = () => {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  const currentCategory = MEGA_NAV_CATEGORIES[activeCategoryIndex] || MEGA_NAV_CATEGORIES[0];
 
   return (
     <header className={`cira-header ${scrolled ? "is-scrolled" : ""}`}>
@@ -149,55 +308,88 @@ const Navbar = () => {
                 {dropdownOpen && (
                   <div
                     id="desktop-products-menu"
-                    className="cira-mega-menu"
+                    className="cira-mega-menu cira-mega-menu--ifm"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="cira-mega-menu__grid">
-                      <div className="cira-mega-col">
-                        <span className="cira-mega-col__title">Process Instrumentation</span>
-                        <ul className="cira-mega-list">
-                          {INSTRUMENTATION_CATEGORIES.map((item) => (
-                            <li key={item.slug}>
-                              <NavLink
-                                to={`/products/${encodeURIComponent(item.slug)}`}
-                                className="cira-mega-link"
-                                onClick={() => setDropdownOpen(false)}
-                              >
-                                {item.label}
-                              </NavLink>
-                            </li>
-                          ))}
+                    <div className="cira-ifm-wrapper">
+                      {/* Left Sidebar Categories */}
+                      <aside className="cira-ifm-sidebar" aria-label="Product categories">
+                        <ul className="cira-ifm-sidebar__list">
+                          {MEGA_NAV_CATEGORIES.map((cat, idx) => {
+                            const isCurrent = idx === activeCategoryIndex;
+                            return (
+                              <li key={cat.id}>
+                                <button
+                                  type="button"
+                                  className={`cira-ifm-sidebar__btn ${isCurrent ? "is-active" : ""}`}
+                                  onMouseEnter={() => setActiveCategoryIndex(idx)}
+                                  onClick={() => {
+                                    setActiveCategoryIndex(idx);
+                                    navigate(`/products/${encodeURIComponent(cat.slug)}`);
+                                    setDropdownOpen(false);
+                                  }}
+                                >
+                                  <span className="cira-ifm-sidebar__label">{cat.label}</span>
+                                  <FiChevronRight className="cira-ifm-sidebar__chevron" aria-hidden="true" />
+                                </button>
+                              </li>
+                            );
+                          })}
                         </ul>
-                      </div>
 
-                      <div className="cira-mega-col">
-                        <span className="cira-mega-col__title">Control Valves &amp; Automation</span>
-                        <ul className="cira-mega-list">
-                          {VALVE_AUTOMATION_CATEGORIES.map((item) => (
-                            <li key={item.slug}>
-                              <NavLink
-                                to={`/products/${encodeURIComponent(item.slug)}`}
-                                className="cira-mega-link"
-                                onClick={() => setDropdownOpen(false)}
-                              >
-                                {item.label}
-                              </NavLink>
-                            </li>
+                        <div className="cira-ifm-sidebar__footer">
+                          <Link
+                            to="/Contact"
+                            className="cira-ifm-sidebar__cta"
+                            onClick={() => setDropdownOpen(false)}
+                          >
+                            <FiArrowRight aria-hidden="true" /> Technical Enquiry / RFQ
+                          </Link>
+                        </div>
+                      </aside>
+
+                      {/* Right Sub-Category & Product Content Area */}
+                      <div className="cira-ifm-content">
+                        <div className="cira-ifm-content__head">
+                          <div className="cira-ifm-content__title-wrap">
+                            <h3 className="cira-ifm-content__title">{currentCategory.label}</h3>
+                            <span className="cira-ifm-content__badge">{currentCategory.badge}</span>
+                          </div>
+                          <Link
+                            to={`/products/${encodeURIComponent(currentCategory.slug)}`}
+                            className="cira-ifm-content__viewall"
+                            onClick={() => setDropdownOpen(false)}
+                          >
+                            <span>Open {currentCategory.label} Page</span>
+                            <FiArrowRight aria-hidden="true" />
+                          </Link>
+                        </div>
+
+                        <div className="cira-ifm-content__grid">
+                          {currentCategory.sections.map((sec) => (
+                            <div key={sec.title} className="cira-ifm-col">
+                              <div className="cira-ifm-col__header">
+                                <span className="cira-ifm-col__title">{sec.title}</span>
+                                <div className="cira-ifm-col__line" aria-hidden="true" />
+                              </div>
+                              <ul className="cira-ifm-col__list">
+                                {sec.items.map((it) => (
+                                  <li key={it.name}>
+                                    <Link
+                                      to={it.path}
+                                      className="cira-ifm-item-link"
+                                      onClick={() => setDropdownOpen(false)}
+                                    >
+                                      {it.name}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                           ))}
-                        </ul>
+                        </div>
                       </div>
-                    </div>
-
-                    <div className="cira-mega-menu__footer">
-                      <span>Explore our complete portfolio of 60+ instruments &amp; valves</span>
-                      <Link
-                        to="/products"
-                        className="cira-mega-all-link"
-                        onClick={() => setDropdownOpen(false)}
-                      >
-                        Browse All Products <FiArrowRight aria-hidden="true" />
-                      </Link>
                     </div>
                   </div>
                 )}
@@ -254,7 +446,7 @@ const Navbar = () => {
               <div className="cira-mobile-accordion">
                 <div className="cira-mobile-accordion-row">
                   <NavLink
-                    to="/products"
+                    to="/products/flow%20measurement"
                     className={({ isActive }) =>
                       `cira-mobile-link cira-mobile-link--products ${
                         isActive || location.pathname.startsWith("/product") ? "active" : ""
@@ -280,34 +472,17 @@ const Navbar = () => {
 
                 {mobileProductsOpen && (
                   <div className="cira-mobile-sublinks">
-                    <Link
-                      to="/products"
-                      className="cira-mobile-sublink cira-mobile-sublink--highlight"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      All Products Catalogue
-                    </Link>
-                    <span className="cira-mobile-subhead">Process Instrumentation</span>
-                    {INSTRUMENTATION_CATEGORIES.map((item) => (
-                      <Link
-                        key={item.slug}
-                        to={`/products/${encodeURIComponent(item.slug)}`}
-                        className="cira-mobile-sublink"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                    <span className="cira-mobile-subhead">Control Valves &amp; Automation</span>
-                    {VALVE_AUTOMATION_CATEGORIES.map((item) => (
-                      <Link
-                        key={item.slug}
-                        to={`/products/${encodeURIComponent(item.slug)}`}
-                        className="cira-mobile-sublink"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
+                    {MEGA_NAV_CATEGORIES.map((cat) => (
+                      <div key={cat.id} className="cira-mobile-cat-group">
+                        <Link
+                          to={`/products/${encodeURIComponent(cat.slug)}`}
+                          className="cira-mobile-sublink cira-mobile-sublink--head"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          <span>{cat.label}</span>
+                          <span className="cira-mobile-badge">{cat.badge}</span>
+                        </Link>
+                      </div>
                     ))}
                   </div>
                 )}
