@@ -4,6 +4,7 @@ import { FiArrowLeft, FiFileText, FiMessageSquare, FiLayers } from "react-icons/
 import products from "../../data/products";
 import "./ProductDetails.css";
 import PdfViewerModal from "../common/PdfViewerModal";
+import EmfFeaturesApplications from "../common/EmfFeaturesApplications";
 
 function ProductDetails() {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ function ProductDetails() {
             <FiArrowLeft aria-hidden="true" /> Back
           </button>
 
-          <h1 className="cira-page-hero__title">{product.name}</h1>
+          <h1 className="cira-page-hero__title">{categoryLabel}</h1>
 
           <nav className="cira-breadcrumb" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
@@ -60,7 +61,7 @@ function ProductDetails() {
           {/* Left Visual Stage */}
           <aside className="cira-details-visual">
             <div className="cira-details-img-box">
-              <span className="cira-details-cat-badge">{categoryLabel}</span>
+              <span className="cira-details-cat-badge">{product.name}</span>
               <img
                 src={product.image}
                 alt={product.name}
@@ -89,12 +90,17 @@ function ProductDetails() {
                 <FiLayers aria-hidden="true" />
                 <h2>Technical Overview</h2>
               </div>
+              <h3 className="cira-details-model-subtitle">{product.name}</h3>
               <p className="cira-details-desc">
                 {product.description ||
                   `${product.name} is part of Madras Control Components' ${categoryLabel} portfolio, engineered for industrial process accuracy, durability, and seamless plant integration.`}
               </p>
 
               <dl className="cira-details-meta-grid">
+                <div>
+                  <dt>Model / Name</dt>
+                  <dd>{product.name}</dd>
+                </div>
                 <div>
                   <dt>Category</dt>
                   <dd>{product.type}</dd>
@@ -112,33 +118,16 @@ function ProductDetails() {
               </dl>
             </div>
 
-            {product.specifications?.length > 0 && (
-              <div className="cira-details-card">
-                <div className="cira-details-card__head">
-                  <h2>Component &amp; Material Specifications</h2>
-                </div>
-                <div className="cira-table-wrap">
-                  <table className="cira-specs-table">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Parameter / Component</th>
-                        <th scope="col">Material / Specification</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {product.specifications.map((spec, index) => (
-                        <tr key={index}>
-                          <td className="cira-spec-num">{spec.no || index + 1}</td>
-                          <td className="cira-spec-desc">{spec.description}</td>
-                          <td>{spec.material}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
+            {/* Electromagnetic Flow Meter Features & Applications */}
+            {product.id === 7 ? (
+              <EmfFeaturesApplications variant="insertion" />
+            ) : product.id === 2 ? (
+              <EmfFeaturesApplications variant="battery" />
+            ) : product.id === 4 ? (
+              <EmfFeaturesApplications variant="solar" />
+            ) : (product.id === 1 || product.subCategory === "ELECTROMAGNETIC FLOW METER") ? (
+              <EmfFeaturesApplications variant="full-bore" />
+            ) : null}
           </div>
         </div>
       </div>

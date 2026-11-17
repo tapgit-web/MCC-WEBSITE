@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Electromagnetic Flow Meter - Flow Rate Reference Table
+   Matches standard industrial calibration sizing (at v = 1 m/s)
+   ========================================================================== */
+
+.cira-flowrate-card {
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+  background: #ffffff;
+  border: 1px solid var(--cira-border);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.25rem;
+  box-shadow: 0 4px 18px rgba(6, 15, 33, 0.04);
+}
+
+.cira-flowrate-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--cira-border);
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .cira-flowrate-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.cira-flowrate-title-wrap {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.cira-flowrate-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1e88e5; /* Distinctive flow rate table blue */
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.cira-flowrate-condition {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--cira-navy-900);
+}
+
+.cira-flowrate-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cira-flowrate-search {
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid var(--cira-border-strong);
+  font-size: 0.78rem;
+  color: var(--cira-navy-900);
+  background: var(--cira-surface-muted);
+  outline: none;
+  width: 150px;
+  transition: all 0.2s ease;
+}
+
+.cira-flowrate-search:focus {
+  background: #ffffff;
+  border-color: var(--cira-blue-600);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Two-column side-by-side table container */
+.cira-flowrate-tables-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .cira-flowrate-tables-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.cira-flowrate-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.cira-flowrate-col__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0 0.25rem;
+}
+
+.cira-flowrate-col__title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1e88e5;
+  margin: 0;
+}
+
+.cira-flowrate-col__cond {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cira-text-secondary);
+}
+
+.cira-flowrate-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--cira-border);
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(6, 15, 33, 0.04);
+}
+
+.cira-flowrate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+}
+
+.cira-flowrate-table thead th {
+  background: #1976d2; /* Solid blue banner matching image */
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 0.65rem;
+  white-space: nowrap;
+  border: none;
+}
+
+.cira-flowrate-table thead th:not(:first-child) {
+  text-align: right;
+}
+
+.cira-flowrate-table tbody tr {
+  border-bottom: 1px solid var(--cira-border);
+  transition: background-color 0.15s ease;
+}
+
+.cira-flowrate-table tbody tr:nth-child(even) {
+  background-color: #f7fafe;
+}
+
+.cira-flowrate-table tbody tr:hover {
+  background-color: #e3effd;
+}
+
+.cira-flowrate-table tbody tr.is-highlighted {
+  background-color: #fef08a !important;
+  font-weight: 700;
+}
+
+.cira-flowrate-table td {
+  padding: 0.35rem 0.65rem;
+  color: var(--cira-navy-900);
+  white-space: nowrap;
+}
+
+.cira-flowrate-table td.dn-cell {
+  font-weight: 700;
+  color: #0b1c3d;
+}
+
+.cira-flowrate-table td.num-cell {
+  text-align: right;
+  color: var(--cira-text-secondary);
+}
+
+/* Footer sizing notes */
+.cira-flowrate-footer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--cira-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  color: var(--cira-text-muted);
+  line-height: 1.5;
+}
+
+.cira-flowrate-footer strong {
+  color: var(--cira-navy-900);
+}

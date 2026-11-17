@@ -54,28 +54,40 @@
   background: #ffffff;
   border: 1px solid var(--cira-border);
   border-radius: var(--radius-lg);
-  padding: 2.5rem 1.75rem 2rem;
-  display: grid;
-  place-items: center;
-  aspect-ratio: 1 / 1;
+  padding: 3.25rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   box-shadow: var(--shadow-sm);
   margin-block-end: 1rem;
+  min-height: 320px;
 }
 
 .cira-details-cat-badge {
   position: absolute;
-  inset-block-start: 1rem;
-  inset-inline-start: 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  inset-block-start: 0.85rem;
+  inset-inline-start: 0.85rem;
+  inset-inline-end: 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   background: var(--cira-surface-subtle);
-  color: var(--cira-navy-800);
+  color: var(--cira-navy-900);
   border: 1px solid var(--cira-border);
-  padding: 0.28rem 0.7rem;
-  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  line-height: 1.35;
+  box-shadow: 0 1px 3px rgba(6, 15, 33, 0.05);
+}
+
+.cira-details-model-subtitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cira-navy-900);
+  margin: 0.4rem 0 0.85rem;
 }
 
 .cira-details-img {

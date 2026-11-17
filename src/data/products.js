@@ -1,8 +1,11 @@
 // import img from "../components/images/product/valve1.png"
 // flow
+import FullBoreSR1000A from "../components/images/product/flow/FullBore_SR1000A.jpg"
+import InsertionSR1000i from "../components/images/product/flow/Insertion_SR1000i.png"
+import BatteryOperatedSS1021 from "../components/images/product/flow/BatteryOperated_SS1021.png"
 import Electromagnetic from "../components/images/product/flow/ELECTROMAGNETICFLOWMETER.jpg"
 import Ultrasonic1 from "../components/images/product/flow/ULTRASONIC FLOWMETER.jpg"
-import SolarPoweredFM from "../components/images/product/flow/solar_powered_flowmeter.jpg"
+import SolarPoweredFM from "../components/images/product/flow/SolarPowered_EMF.jpg"
 import BtuMeter from "../components/images/product/flow/btu_meter.jpg"
 import ThermalMass from "../components/images/product/flow/THERMAL MASS FLOWMETER1.jpg"
 // level
@@ -43,14 +46,35 @@ const products = [
   // Flow Measurement (Hierarchical Categories matching Image 2)
   {
     id: 1,
-    name: "Insertion Type Electromagnetic Flow Meter SR1000i",
+    name: "Full Bore Electromagnetic Flow Meter SR1000A",
     subCategory: "ELECTROMAGNETIC FLOW METER",
     subItemNo: 1,
     type: "Flow Measurement",
     price: 2999,
-    image: Electromagnetic,
+    image: FullBoreSR1000A,
     pdf: "/pdf/Flow/1.EMF.pdf",
-    description: "High-accuracy hot-tap insertion type electromagnetic flow meter (SR1000i) engineered for large conduits, municipal water distribution, and plant utility pipelines.",
+    description: "High-accuracy full bore flanged electromagnetic flow meter (SR1000A) engineered for water, wastewater, chemical slurries, and industrial process fluids with zero pressure drop and excellent long-term zero stability.",
+    specifications: [
+      { no: 1, description: "Model", material: "SR1000A Full Bore Flanged" },
+      { no: 2, description: "Line Size", material: "DN10 to DN1600 mm" },
+      { no: 3, description: "Electrodes", material: "SS316L / Hastelloy C / Titanium / Tantalum" },
+      { no: 4, description: "Lining", material: "PTFE / Hard Rubber / Neoprene / PFA" },
+      { no: 5, description: "Accuracy", material: "±0.5% of reading (±0.2% optional)" },
+      { no: 6, description: "Process Connection", material: "Flanged ANSI B16.5 / DIN PN10-PN40" },
+      { no: 7, description: "Outputs", material: "4-20mA, Pulse, RS485 Modbus, HART" },
+      { no: 8, description: "Protection", material: "IP68 Sensor / IP67 Transmitter" },
+    ],
+  },
+  {
+    id: 7,
+    name: "Insertion Type Electromagnetic Flow Meter SR1000i",
+    subCategory: "ELECTROMAGNETIC FLOW METER",
+    subItemNo: 2,
+    type: "Flow Measurement",
+    price: 2999,
+    image: InsertionSR1000i,
+    pdf: "/pdf/Flow/1.EMF.pdf",
+    description: "Hot-tap insertion type electromagnetic flow meter (SR1000i) engineered for line sizes from DN100 to DN3000 mm, enabling installation without shutting down plant operations.",
     specifications: [
       { no: 1, description: "Model", material: "SR1000i Hot-Tap Insertion" },
       { no: 2, description: "Line Size", material: "DN100 to DN3000 mm" },
@@ -64,10 +88,10 @@ const products = [
     id: 2,
     name: "Battery Operated Electromagnetic Flow Meter SS1021",
     subCategory: "ELECTROMAGNETIC FLOW METER",
-    subItemNo: 2,
+    subItemNo: 3,
     type: "Flow Measurement",
     price: 2999,
-    image: Electromagnetic,
+    image: BatteryOperatedSS1021,
     pdf: "/pdf/Flow/1.EMF.pdf",
     description: "Autonomous battery-operated electromagnetic flow meter (SS1021) with integrated GSM/GPRS telemetry, designed for district metering areas and remote networks.",
     specifications: [
@@ -100,18 +124,18 @@ const products = [
   },
   {
     id: 4,
-    name: "SOLAR POWERED FLOW METER",
-    subCategory: "SOLAR POWERED FLOW METER",
-    subItemNo: 1,
+    name: "Solar Powered Electromagnetic Flow Meter",
+    subCategory: "ELECTROMAGNETIC FLOW METER",
+    subItemNo: 4,
     type: "Flow Measurement",
     price: 2999,
     image: SolarPoweredFM,
     pdf: "/pdf/Flow/1.EMF.pdf",
-    description: "Autonomous solar-powered flow metering station engineered for remote water supply, irrigation, and pipeline telemetry without grid power.",
+    description: "Autonomous solar-powered electromagnetic flow meter system engineered for agricultural irrigation, remote water supply, and pipeline telemetry without grid power.",
     specifications: [
       { no: 1, description: "Power System", material: "Integrated Solar PV Panel with LiFePO4 Battery" },
       { no: 2, description: "Battery Autonomy", material: "Up to 30 days continuous backup in overcast conditions" },
-      { no: 3, description: "Flow Sensor", material: "Low-Power Electromagnetic / Ultrasonic Body" },
+      { no: 3, description: "Flow Sensor", material: "Low-Power Electromagnetic Sensor Body" },
       { no: 4, description: "Telemetry", material: "Built-in 4G / GPRS / NB-IoT / LoRaWAN" },
       { no: 5, description: "Sensor Protection", material: "IP68 Hermetically Submersible" },
       { no: 6, description: "Operating Temperature", material: "-20°C to +65°C ambient" },
