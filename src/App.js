@@ -25,7 +25,7 @@ function AnimatedRoutes() {
         <Route path="/Contact" element={<ContactPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/founder" element={<Founder />} />
-        <Route path="/products" element={<Navigate to="/products/flow%20measurement" replace />} />
+        <Route path="/products" element={<ProductLists />} />
         <Route path="/products/:category" element={<ProductLists />} />
         <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
