@@ -199,7 +199,19 @@ const Navbar = () => {
     }
     closeTimeoutRef.current = setTimeout(() => {
       setDropdownOpen(false);
-    }, 250);
+    }, 300);
+  };
+
+  const handleProductsClick = (e) => {
+    // If closed, open the dropdown
+    if (!dropdownOpen) {
+      e.preventDefault();
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+      setDropdownOpen(true);
+    } else {
+      // If already open, let the click navigate to /products overview
+      setDropdownOpen(false);
+    }
   };
 
   useEffect(() => {
@@ -296,7 +308,7 @@ const Navbar = () => {
                   }
                   aria-expanded={dropdownOpen}
                   aria-controls="desktop-products-menu"
-                  onClick={() => setDropdownOpen(false)}
+                  onClick={handleProductsClick}
                 >
                   <span>Products</span>
                   <FiChevronDown
@@ -325,9 +337,12 @@ const Navbar = () => {
                                   className={`cira-ifm-sidebar__btn ${isCurrent ? "is-active" : ""}`}
                                   onMouseEnter={() => setActiveCategoryIndex(idx)}
                                   onClick={() => {
-                                    setActiveCategoryIndex(idx);
-                                    navigate(`/products/${encodeURIComponent(cat.slug)}`);
-                                    setDropdownOpen(false);
+                                    if (isCurrent) {
+                                      navigate(`/products/${encodeURIComponent(cat.slug)}`);
+                                      setDropdownOpen(false);
+                                    } else {
+                                      setActiveCategoryIndex(idx);
+                                    }
                                   }}
                                 >
                                   <span className="cira-ifm-sidebar__label">{cat.label}</span>
@@ -339,6 +354,13 @@ const Navbar = () => {
                         </ul>
 
                         <div className="cira-ifm-sidebar__footer">
+                          <Link
+                            to="/products"
+                            className="cira-ifm-sidebar__cta mb-2"
+                            onClick={() => setDropdownOpen(false)}
+                          >
+                            <FiArrowRight aria-hidden="true" /> All Categories Overview
+                          </Link>
                           <Link
                             to="/Contact"
                             className="cira-ifm-sidebar__cta"
@@ -446,7 +468,7 @@ const Navbar = () => {
               <div className="cira-mobile-accordion">
                 <div className="cira-mobile-accordion-row">
                   <NavLink
-                    to="/products/flow%20measurement"
+                    to="/products"
                     className={({ isActive }) =>
                       `cira-mobile-link cira-mobile-link--products ${
                         isActive || location.pathname.startsWith("/product") ? "active" : ""
