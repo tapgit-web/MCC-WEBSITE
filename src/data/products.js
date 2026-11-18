@@ -4,17 +4,23 @@ import FullBoreSR1000A from "../components/images/product/flow/FullBore_SR1000A.
 import InsertionSR1000i from "../components/images/product/flow/Insertion_SR1000i.png"
 import BatteryOperatedSS1021 from "../components/images/product/flow/BatteryOperated_SS1021.png"
 import Electromagnetic from "../components/images/product/flow/ELECTROMAGNETICFLOWMETER.jpg"
-import Ultrasonic1 from "../components/images/product/flow/ULTRASONIC FLOWMETER.jpg"
+import Ultrasonic1 from "../components/images/product/flow/ClampOn_Ultrasonic.png"
+import InsertionUltrasonic from "../components/images/product/flow/Insertion_Ultrasonic.png"
+import FullBoreUltrasonic from "../components/images/product/flow/FullBore_Ultrasonic.png"
 import SolarPoweredFM from "../components/images/product/flow/SolarPowered_EMF.jpg"
-import BtuMeter from "../components/images/product/flow/btu_meter.jpg"
+import BtuMeter from "../components/images/product/flow/BTUMeter_Chiller.png"
+import BtuMeterHeat from "../components/images/product/flow/BTUMeter_Heat.png"
+import BtuMeterUltrasonic from "../components/images/product/flow/BTUMeter_Ultrasonic.png"
 import ThermalMass from "../components/images/product/flow/THERMAL MASS FLOWMETER1.jpg"
+import FullBoreThermalMass from "../components/images/product/flow/FullBore_ThermalMass.png"
+import ThermalMassInsertion from "../components/images/product/flow/ThermalMass_Insertion.jpg"
 // level
-import RadarLevel from "../components/images/product/level/RadarLevel.jpeg"
-import GuidedWaveradarLevel from "../components/images/product/level/GuidedWaveradarLevel.jpeg"
-import UltrasonicLevel from "../components/images/product/level/UltrasonicLevel.jpeg"
+import RadarLevel from "../components/images/product/level/RadarLevel_Transmitter.png"
+import GuidedWaveradarLevel from "../components/images/product/level/GuidedWaveRadar_Level.png"
+import UltrasonicLevel from "../components/images/product/level/Ultrasonic_Level.png"
 import DPLevel from "../components/images/product/level/DPLevel.jpeg"
-import PointLevel from "../components/images/product/level/PointLevel.png"
-import Hydrostatical from "../components/images/product/level/hydrostatical1.png"
+import PointLevel from "../components/images/product/level/PointLevel_Sensor.png"
+import Hydrostatical from "../components/images/product/level/Hydrostatic_Level.png"
 import CapacitanceLevel from "../components/images/product/level/Capacitance Level.jpeg"
 import Float from "../components/images/product/level/Float.jpeg"
 // valve
@@ -33,8 +39,13 @@ import feppfaLineedButterfly from "../components/images/product/valve/feppfaLine
 import float1 from "../components/images/product/temperature/float.png"
 import Head1 from "../components/images/product/temperature/head.png"
 //pressure
-import dpt from "../components/images/product/pressure/dpt.png"
-import Absoluteandgauge from "../components/images/product/pressure/Absoluteandgauge.png"
+import CompactPressureTransmitter from "../components/images/product/pressure/Compact_Pressure_Transmitter.png"
+import HighAccuracyPressureTransmitter from "../components/images/product/pressure/High_Accuracy_Pressure_Transmitter.png"
+import TransmitterIntegralDisplay from "../components/images/product/pressure/Transmitter_Integral_Display.png"
+import TransmittersSanitaryApplication from "../components/images/product/pressure/Transmitters_Sanitary_Application.jpg"
+import TransmittersSubmersibleApplication from "../components/images/product/pressure/Transmitters_Submersible_Application.jpg"
+import TransmitterPneumaticApplication from "../components/images/product/pressure/Transmitter_Pneumatic_Application.jpg"
+import TransmittersHazardousApplication from "../components/images/product/pressure/Transmitters_Hazardous_Application.jpg"
 //vibration
 import vibsensors from "../components/images/product/vibration/sensors.png"
 import vibvelocity from "../components/images/product/vibration/vib-velocity.png"
@@ -123,6 +134,44 @@ const products = [
     ],
   },
   {
+    id: 8,
+    name: "Insertion Type Ultrasonic Flow Meter",
+    subCategory: "ULTRASONIC FLOW METER",
+    subItemNo: 2,
+    type: "Flow Measurement",
+    price: 2999,
+    image: InsertionUltrasonic,
+    pdf: "/pdf/Flow/6.Ultrasonic_clamp_FM.pdf",
+    description: "Hot-tap insertion transit-time ultrasonic flow meter designed for large municipal, utility, and industrial pipelines without process shutdown or flow interruption.",
+    specifications: [
+      { no: 1, description: "Measurement Principle", material: "Ultrasonic Transit-Time Difference" },
+      { no: 2, description: "Installation Type", material: "Hot-Tap Wetted Insertion Sensors" },
+      { no: 3, description: "Pipe Size Range", material: "DN50 to DN6000 mm" },
+      { no: 4, description: "Accuracy", material: "±1.0% of reading" },
+      { no: 5, description: "Outputs & Comms", material: "4-20mA, OCT Pulse, Relay, RS485 Modbus" },
+      { no: 6, description: "Medium", material: "Clear water applications only" },
+    ],
+  },
+  {
+    id: 9,
+    name: "Full Bore Ultrasonic Flow Meter",
+    subCategory: "ULTRASONIC FLOW METER",
+    subItemNo: 3,
+    type: "Flow Measurement",
+    price: 2999,
+    image: FullBoreUltrasonic,
+    pdf: "/pdf/Flow/6.Ultrasonic_clamp_FM.pdf",
+    description: "Compact inline full bore ultrasonic flow meter engineered for precise volumetric flow metering and temperature monitoring of water and aqueous solutions with zero moving parts.",
+    specifications: [
+      { no: 1, description: "Measurement Principle", material: "Inline Ultrasonic Transit-Time" },
+      { no: 2, description: "Flow Tube Design", material: "Full Bore Stainless Steel Spool" },
+      { no: 3, description: "Process Connection", material: "Threaded / Tri-Clamp / Flanged" },
+      { no: 4, description: "Accuracy", material: "±0.5% to ±1.0% of reading" },
+      { no: 5, description: "Output Signals", material: "4-20mA, IO-Link, Frequency / Pulse, Modbus" },
+      { no: 6, description: "Protection Rating", material: "IP67 / IP69K Stainless Steel Body" },
+    ],
+  },
+  {
     id: 4,
     name: "Solar Powered Electromagnetic Flow Meter",
     subCategory: "ELECTROMAGNETIC FLOW METER",
@@ -143,7 +192,7 @@ const products = [
   },
   {
     id: 5,
-    name: "BTU METER",
+    name: "BTU Meter for Chiller Application",
     subCategory: "BTU METER",
     subItemNo: 1,
     type: "Flow Measurement",
@@ -161,49 +210,152 @@ const products = [
     ],
   },
   {
+    id: 10,
+    name: "BTU Meter for Heat Application",
+    subCategory: "BTU METER",
+    subItemNo: 2,
+    type: "Flow Measurement",
+    price: 2999,
+    image: BtuMeterHeat,
+    pdf: "/pdf/Flow/6.Ultrasonic_clamp_FM.pdf",
+    description: "Heat energy transfer meter engineered for thermal oil, hot water, and heat transfer fluids (Hytherm, Dowtherm, Therminol) with multi-unit thermal power calculation and datalogging.",
+    specifications: [
+      { no: 1, description: "Measurement Principle", material: "Thermal Energy Calculation (Flow × ΔT × Density × Specific Heat)" },
+      { no: 2, description: "Thermic Fluid Support", material: "Hytherm, Dowtherm, Thermia, Therminol, Water" },
+      { no: 3, description: "Engineering Units", material: "Heat in Kcal/hr, Energy in MKcal, Flow in m³/hr, Temp in °C" },
+      { no: 4, description: "Data Logging", material: "Up to 3000 normal / 5500 extended readings" },
+      { no: 5, description: "Diagnostics", material: "Buzzer on faults/errors, error code display" },
+      { no: 6, description: "Security", material: "Password protection on all programming modes" },
+    ],
+  },
+  {
+    id: 11,
+    name: "Ultrasonic BTU Meter",
+    subCategory: "BTU METER",
+    subItemNo: 3,
+    type: "Flow Measurement",
+    price: 2999,
+    image: BtuMeterUltrasonic,
+    pdf: "/pdf/Flow/6.Ultrasonic_clamp_FM.pdf",
+    description: "Non-invasive ultrasonic BTU / thermal energy meter system combining clamp-on ultrasonic flow sensors with precision temperature difference probes for HVAC and chiller energy monitoring.",
+    specifications: [
+      { no: 1, description: "Pipe Size Range", material: "DN50 to DN1500 mm" },
+      { no: 2, description: "Flow Sensing", material: "Non-invasive Clamp-On Ultrasonic Transducers" },
+      { no: 3, description: "Response", material: "Fast dynamic response, no moving parts" },
+      { no: 4, description: "Analog Output", material: "Isolated 4-20 mA output proportional to flow" },
+      { no: 5, description: "Installation", material: "No pipe cutting or shutdown required" },
+      { no: 6, description: "Application", material: "Chiller water and HVAC air conditioning energy" },
+    ],
+  },
+  {
     id: 6,
-    name: "THERMAL MASS FLOW METER",
+    name: "Full Bore THERMAL MASS FLOW METER",
     subCategory: "THERMAL MASS FLOW METER",
     subItemNo: 1,
     type: "Flow Measurement",
     price: 2999,
-    image: ThermalMass,
+    image: FullBoreThermalMass,
     pdf: "/pdf/Flow/4.Thermalmass_FM.pdf",
-    description: "Direct thermal mass flow measurement for compressed air, natural gas, biogas, aeration air, and industrial gas pipelines without pressure/temp compensation.",
+    description: "Direct measurement of mass flow for compressed air, fuel gas, biogas, and industrial pipelines with zero pressure or temperature compensation required, 20:1 turndown ratio, wireless data transfer, and RS485 networking.",
+    features: [
+      "Direct measurement of mass flow",
+      "No pressure or temperature compensation required",
+      "20:1 turndown ratio",
+      "Wireless data transfer is possible. Remote readings are available on wireless",
+      "Pulse, milliamps, and RS485 output for networking",
+    ],
+    applications: [
+      "Compressed air/ Gas Consumption measurement",
+      "Very low-pressure flowing conditions",
+      "Fuel Gas consumption measurement",
+      "Furnace and burner control",
+      "Biogas measurement and digester and ahead",
+      "HVAC applications",
+    ],
     specifications: [
-      { no: 1, description: "Measurement Principle", material: "Thermal Dispersion / Constant Temperature Differential" },
-      { no: 2, description: "Accuracy", material: "±1.0% of reading ±0.5% full scale" },
-      { no: 3, description: "Turndown Ratio", material: "Up to 100:1 wide dynamic range" },
-      { no: 4, description: "Sensor Material", material: "SS316L / Hastelloy C wetted parts" },
-      { no: 5, description: "Process Connection", material: "Retractable hot-tap insertion or flanged inline spool" },
-      { no: 6, description: "Outputs", material: "4-20mA, Scaled Pulse, RS485 Modbus, HART" },
+      { no: 1, description: "Measurement Principle", material: "Thermal Dispersion / Direct Mass Flow" },
+      { no: 2, description: "Compensation", material: "No pressure or temperature compensation required" },
+      { no: 3, description: "Turndown Ratio", material: "20:1 turndown ratio" },
+      { no: 4, description: "Telemetry & Wireless", material: "Wireless data transfer & remote readings supported" },
+      { no: 5, description: "Outputs & Networking", material: "Pulse, milliamps (4-20mA), and RS485 output" },
+      { no: 6, description: "Installation & Body", material: "Full Bore Inline Flanged Spool" },
+    ],
+  },
+  {
+    id: 12,
+    name: "Thermal Mass Insertion Type",
+    subCategory: "THERMAL MASS FLOW METER",
+    subItemNo: 2,
+    type: "Flow Measurement",
+    price: 2999,
+    image: ThermalMassInsertion,
+    pdf: "/pdf/Flow/4.Thermalmass_FM.pdf",
+    description: "Compact insertion thermal mass flow meter engineered for industrial compressed air applications, featuring an adjustable immersion depth for pipe diameters from 14 to 254 mm, local digital display, pushbuttons, and up to 64 bar burst pressure rating.",
+    applicationTable: [
+      { property: "Application", values: ["for industrial applications"] },
+      { property: "Installation", values: ["Adjustable to inside pipe diameters; ( 14...254 mm)"] },
+      { property: "Media", values: ["compressed air"] },
+      { property: "Medium temperature [°C]", values: ["-10...60"] },
+      { property: "Min. burst pressure", values: ["64 bar", "6.4 MPa"] },
+      { property: "Pressure rating", values: ["16 bar", "1.6 MPa"] },
+      { property: "MAWP for applications according to CRN [bar]", values: ["10"] },
     ],
   },
 
   // Level Measurement
   {
     id: 21,
-    name: "Radar Level Transmitter ",
+    name: "Radar Level Transmitter",
     type: "Level Measurement",
-
     price: 2999,
     image: RadarLevel,
+    description: "Continuous, non-contact radar level transmitter engineered for liquids, pastes, and sludges with high signal focusing, Bluetooth® wireless commissioning, and SIL2/SIL3 functional safety.",
+    specifications: [
+      { no: 1, description: "Measuring Principle", material: "80 GHz Non-Contact Free Space Radar" },
+      { no: 2, description: "Maximum Measuring Range", material: "Up to 50 m (164 ft)" },
+      { no: 3, description: "Accuracy", material: "±1 mm (±0.04 in)" },
+      { no: 4, description: "Process Connections", material: "Thread or mounting bracket" },
+      { no: 5, description: "Process Temperature", material: "-40 to +200 °C (-40 to +392 °F)" },
+      { no: 6, description: "Process Pressure", material: "-1 to +20 bar (-14.5 to +290 psi)" },
+      { no: 7, description: "Antenna Options", material: "PVDF, PTFE Drip-off or PEEK antenna for small process connections" },
+      { no: 8, description: "Commissioning & Safety", material: "Bluetooth® wireless technology, SIL2 / SIL3 (IEC 61508), WHG proof testing" },
+    ],
   },
   {
     id: 22,
-    name: "Guided Wave Radar Level ",
+    name: "Guided Wave Radar Level",
     type: "Level Measurement",
-
     price: 2999,
     image: GuidedWaveradarLevel,
+    description: "Guided wave radar level sensor engineered for continuous level measurement in industrial liquids, water, and oil-based media with gold-plated contacts and high vacuum/pressure resistance.",
+    specifications: [
+      { no: 1, description: "Special Feature", material: "Gold-plated contacts" },
+      { no: 2, description: "Application Scope", material: "For industrial liquid level applications" },
+      { no: 3, description: "Media", material: "Liquids" },
+      { no: 4, description: "Recommended Media", material: "Water, hydrous media, oils, oil-based media" },
+      { no: 5, description: "Dielectric Constant (εr)", material: "≥ 1.8 (coaxial pipe required for 1.8...5 e.g. oils)" },
+      { no: 6, description: "Process Temperature", material: "-25°C to +80°C (up to 90°C for < 1 h)" },
+      { no: 7, description: "Pressure Rating", material: "16 bar (1.6 MPa)" },
+      { no: 8, description: "Vacuum Resistance", material: "-1000 mbar (-0.1 MPa)" },
+      { no: 9, description: "MAWP (CRN)", material: "16 bar" },
+    ],
   },
   {
     id: 23,
     name: "Ultrasonic Level",
     type: "Level Measurement",
-
     price: 2999,
     image: UltrasonicLevel,
+    description: "Continuous non-contact ultrasonic level transmitter engineered for liquids, pastes, and coarse bulk solids with hermetically sealed PVDF sensor and menu-guided plain-text commissioning.",
+    specifications: [
+      { no: 1, description: "Measuring Principle", material: "Non-contact Ultrasonic Time-of-Flight" },
+      { no: 2, description: "Sensor Construction", material: "Hermetically sealed and potted sensor" },
+      { no: 3, description: "Wetted Material", material: "Chemically resistant PVDF" },
+      { no: 4, description: "On-site Display", material: "Four-line plain text display (7 selectable languages) with envelope curves" },
+      { no: 5, description: "Calibration", material: "Calibration without filling or discharging" },
+      { no: 6, description: "Temperature Compensation", material: "Integrated temperature sensor for automatic sound velocity correction" },
+      { no: 7, description: "Application Scope", material: "Continuous level measurement of liquids, pastes, and coarse bulk solids" },
+    ],
   },
   {
     id: 24,
@@ -215,53 +367,185 @@ const products = [
   },
   {
     id: 25,
-    name: "Point level    ",
+    name: "Point Level",
     type: "Level Measurement",
-
     price: 2999,
     image: PointLevel,
+    description: "Compact point level sensor engineered for reliable limit level detection and run-dry protection in liquids, viscous media, and powder with gold-plated contacts and up to 40 bar pressure resistance.",
+    specifications: [
+      { no: 1, description: "Special Feature", material: "Gold-plated contacts" },
+      { no: 2, description: "Media Compatibility", material: "Liquid and viscous media; powder" },
+      { no: 3, description: "Probe Length", material: "11 mm" },
+      { no: 4, description: "Tank Pressure", material: "-1 to 40 bar (-0.1 to 4 MPa)" },
+      { no: 5, description: "MAWP (CRN)", material: "40 bar" },
+      { no: 6, description: "Medium Temperature (Oil & Water)", material: "-40°C to +100°C" },
+      { no: 7, description: "Short-time Temperature", material: "-40°C to +150°C (1 h)" },
+      { no: 8, description: "Application Scope", material: "Overfill prevention & run-dry protection in pipes and vessels" },
+    ],
   },
   {
     id: 26,
-    name: "Hydrostatical    ",
+    name: "Hydrostatic Level Transmitter",
     type: "Level Measurement",
-
     price: 2999,
     image: Hydrostatical,
-  }
-  ,
+    description: "Flush-mountable hydrostatic level and pressure transmitter engineered for food, beverage, and process industries with gold-plated contacts, zero dead space, and wide temperature tolerance up to 150°C.",
+    specifications: [
+      { no: 1, description: "Special Feature", material: "Gold-plated contacts" },
+      { no: 2, description: "Mounting Style", material: "Flush mountable (zero dead space) for food & beverage" },
+      { no: 3, description: "Media Compatibility", material: "Viscous media, liquids with suspended particles, liquids and gases" },
+      { no: 4, description: "Medium Temperature", material: "-25°C to +150°C" },
+      { no: 5, description: "Pressure Rating", material: "10,000 mbar (145 psi / 1000 kPa)" },
+      { no: 6, description: "Min. Burst Pressure", material: "30,000 mbar (435 psi / 3000 kPa)" },
+      { no: 7, description: "Vacuum Resistance", material: "-1000 mbar (-0.1 MPa)" },
+      { no: 8, description: "Pressure Type", material: "Relative pressure / vacuum" },
+      { no: 9, description: "MAWP (CRN)", material: "10 bar" },
+    ],
+  },
   {
     id: 27,
-    name: "Capacitance Level    ",
+    name: "Capacitance Level",
     type: "Level Measurement",
-
     price: 2999,
     image: CapacitanceLevel,
-  }
-  ,
+  },
   {
     id: 28,
     name: "Float switch",
     type: "Level Measurement",
-
     price: 2999,
     image: Float,
   },
+
+  // Pressure Measurement
   {
     id: 40,
-    name: "Absolute and gauge pressure measurement",
+    name: "Compact Pressure Transmitter",
     type: "Pressure Measurement",
-
     price: 2999,
-    image: Absoluteandgauge,
+    image: CompactPressureTransmitter,
+    description: "Compact stainless steel pressure transmitter engineered for demanding industrial liquid and gas applications with relative pressure measurement, 300 bar burst resistance, and vacuum capability.",
+    applicationTable: [
+      { property: "Application", values: ["for industrial applications"] },
+      { property: "Media", values: ["liquids and gases"] },
+      { property: "Medium temperature [°C]", values: ["-40...90"] },
+      { property: "Min. burst pressure", values: ["300 bar", "4350 psi", "30 MPa"] },
+      { property: "Pressure rating", values: ["25 bar", "360 psi", "2.5 MPa"] },
+      { property: "Note on pressure rating", values: ["static"] },
+      { property: "Vacuum resistance", values: ["-1000 mbar", "-0.1 MPa"] },
+      { property: "Type of pressure", values: ["relative pressure"] },
+    ],
   },
   {
     id: 41,
-    name: "Differential pressure flow measurement",
+    name: "Transmitters For High Accuracy",
     type: "Pressure Measurement",
-
     price: 2999,
-    image: dpt,
+    image: HighAccuracyPressureTransmitter,
+    description: "High accuracy relative pressure transmitter engineered for demanding industrial and railway applications with IP68/IP69K sealing, gold-plated contacts, and up to 150 bar burst pressure.",
+    applicationTable: [
+      { property: "Special feature", values: ["Gold-plated contacts"] },
+      { property: "Application", values: ["for industrial applications; for railway applications"] },
+      { property: "Media", values: ["liquids and gases"] },
+      { property: "Medium temperature [°C]", values: ["-25...90; (on request: -40...90 °C)"] },
+      { property: "Min. burst pressure", values: ["150 bar", "2175 psi", "15 MPa"] },
+      { property: "Pressure rating", values: ["75 bar", "1088 psi", "7.5 MPa"] },
+      { property: "Type of pressure", values: ["relative pressure"] },
+    ],
+  },
+  {
+    id: 42,
+    name: "Transmitter With Integral Display",
+    type: "Pressure Measurement",
+    price: 2999,
+    image: TransmitterIntegralDisplay,
+    description: "Heavy-duty relative pressure transmitter with integral alphanumeric digital display and metallic thin film cell engineered for high-pressure industrial applications up to 800 bar rating and 1700 bar burst resistance.",
+    applicationTable: [
+      { property: "Special feature", values: ["Gold-plated contacts"] },
+      { property: "Measuring element", values: ["metallic thin film cell"] },
+      { property: "Application", values: ["for industrial applications"] },
+      { property: "Media", values: ["liquids and gases"] },
+      { property: "Medium temperature [°C]", values: ["-25...80"] },
+      { property: "Min. burst pressure", values: ["1700 bar", "24650 psi", "170 MPa"] },
+      { property: "Pressure rating", values: ["800 bar", "11580 psi", "80 MPa"] },
+      { property: "Vacuum resistance", values: ["-1000 mbar", "-0.1 MPa"] },
+      { property: "Type of pressure", values: ["relative pressure"] },
+      { property: "MAWP for applications according to CRN", values: ["800 bar", "11580 psi", "80 MPa"] },
+    ],
+  },
+  {
+    id: 45,
+    name: "Transmitters For Sanitary Application",
+    type: "Pressure Measurement",
+    price: 2999,
+    image: TransmittersSanitaryApplication,
+    description: "Flush-mountable sanitary pressure transmitter engineered for food, beverage, and hygienic applications with gold-plated contacts, zero dead space, high temperature tolerance up to 150°C, and vacuum resistance.",
+    applicationTable: [
+      { property: "Special feature", values: ["Gold-plated contacts"] },
+      { property: "Application", values: ["flush mountable for the food and beverage industry"] },
+      { property: "Media", values: ["viscous media and liquids with suspended particles; liquids and gases"] },
+      { property: "Medium temperature [°C]", values: ["-25...150"] },
+      { property: "Min. burst pressure", values: ["30000 mbar", "435 psi", "3000 kPa"] },
+      { property: "Pressure rating", values: ["10000 mbar", "145 psi", "1000 kPa"] },
+      { property: "Vacuum resistance", values: ["-1000 mbar", "-0.1 MPa"] },
+      { property: "Type of pressure", values: ["relative pressure; vacuum"] },
+      { property: "No dead space", values: ["yes"] },
+      { property: "MAWP for applications according to CRN [bar]", values: ["10"] },
+    ],
+  },
+  {
+    id: 46,
+    name: "Transmitters For Submersible Application",
+    type: "Pressure Measurement",
+    price: 2999,
+    image: TransmittersSubmersibleApplication,
+    description: "Submersible level and hydrostatic pressure transmitter engineered for liquid storage, deep wells, tanks, and water reservoirs with built-in capillary tube for ambient pressure compensation and IP68 submersible protection.",
+    applicationTable: [
+      { property: "Design", values: ["with capillary tube for pressure compensation"] },
+      { property: "Application", values: ["for industrial applications"] },
+      { property: "Media", values: ["Liquids"] },
+      { property: "Medium temperature [°C]", values: ["-10...50"] },
+      { property: "Min. burst pressure", values: ["2.4 bar", "35 psi", "240 kPa"] },
+      { property: "Pressure rating", values: ["2 bar", "29 psi", "200 kPa"] },
+      { property: "Type of pressure", values: ["relative pressure"] },
+    ],
+  },
+  {
+    id: 47,
+    name: "Transmitter For Pneumatic Application",
+    type: "Pressure Measurement",
+    price: 2999,
+    image: TransmitterPneumaticApplication,
+    description: "Compact digital pressure transmitter designed for pneumatic systems, compressed air distribution, and nitrogen networks with local display, pushbuttons, gold-plated contacts, and vacuum to 15 bar relative pressure range.",
+    applicationTable: [
+      { property: "Special feature", values: ["Gold-plated contacts"] },
+      { property: "Application", values: ["for industrial applications"] },
+      { property: "Media", values: ["compressed air; nitrogen (N2)"] },
+      { property: "Conditionally suitable for", values: ["other media on request"] },
+      { property: "Medium temperature", values: ["0...60 °C", "32...140 °F"] },
+      { property: "Min. burst pressure", values: ["20 bar", "290 psi"] },
+      { property: "Pressure rating", values: ["15 bar", "220 psi"] },
+      { property: "Vacuum resistance", values: ["-1000 mbar", "-14.5 psi"] },
+      { property: "Type of pressure", values: ["relative pressure; vacuum"] },
+    ],
+  },
+  {
+    id: 48,
+    name: "Transmitters For Hazardous Application",
+    type: "Pressure Measurement",
+    price: 2999,
+    image: TransmittersHazardousApplication,
+    description: "ATEX certified explosion-proof pressure transmitter engineered for hazardous areas and demanding process industries with 350° freely rotatable housing, local digital display, gold-plated contacts, and up to 350 bar burst safety.",
+    applicationTable: [
+      { property: "Special feature", values: ["Gold-plated contacts"] },
+      { property: "Application", values: ["for industrial applications; For applications in hazardous areas"] },
+      { property: "Installation", values: ["freely rotatable housing 350°"] },
+      { property: "Media", values: ["viscous media and liquids with suspended particles; liquids and gases"] },
+      { property: "Medium temperature [°C]", values: ["-20...60; (when used outside the hazardous area:; Ambient temperature: -25...85 °C; Medium temperature: -25...125 °C / 145 °C < 1h)"] },
+      { property: "Min. burst pressure", values: ["350 bar", "5070 psi", "35 MPa"] },
+      { property: "Pressure rating", values: ["100 bar", "1450 psi", "10 MPa"] },
+      { property: "Type of pressure", values: ["relative pressure; vacuum"] },
+    ],
   },
   {
     id: 43,

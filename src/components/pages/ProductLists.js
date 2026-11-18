@@ -12,12 +12,18 @@ import FullBoreSR1000A from "../images/product/flow/FullBore_SR1000A.jpg";
 import InsertionSR1000i from "../images/product/flow/Insertion_SR1000i.png";
 import BatteryOperatedSS1021 from "../images/product/flow/BatteryOperated_SS1021.png";
 import flowImg from "../images/product/flow/ELECTROMAGNETICFLOWMETER.jpg";
-import Ultrasonic1 from "../images/product/flow/ULTRASONIC FLOWMETER.jpg";
+import Ultrasonic1 from "../images/product/flow/ClampOn_Ultrasonic.png";
+import InsertionUltrasonic from "../images/product/flow/Insertion_Ultrasonic.png";
+import FullBoreUltrasonic from "../images/product/flow/FullBore_Ultrasonic.png";
 import SolarPoweredFM from "../images/product/flow/SolarPowered_EMF.jpg";
-import BtuMeter from "../images/product/flow/btu_meter.jpg";
+import BtuMeter from "../images/product/flow/BTUMeter_Chiller.png";
+import BtuMeterHeat from "../images/product/flow/BTUMeter_Heat.png";
+import BtuMeterUltrasonic from "../images/product/flow/BTUMeter_Ultrasonic.png";
 import ThermalMass from "../images/product/flow/THERMAL MASS FLOWMETER1.jpg";
+import FullBoreThermalMass from "../images/product/flow/FullBore_ThermalMass.png";
+import ThermalMassInsertion from "../images/product/flow/ThermalMass_Insertion.jpg";
 import levelImg from "../images/product/level/RadarLevel.jpeg";
-import pressureImg from "../images/product/pressure/dpt.png";
+import pressureImg from "../images/product/pressure/Compact_Pressure_Transmitter.png";
 import tempImg from "../images/product/temperature/head.png";
 import vibrationImg from "../images/product/vibration/sensors.png";
 import ballValveImg from "../images/product/valve/2pcsballvalve.png";
@@ -99,7 +105,7 @@ const FLOW_SECTIONS = [
     subCatKey: "ULTRASONIC FLOW METER",
     shortName: "2. Ultrasonic",
     description:
-      "Non-invasive transit-time clamp-on ultrasonic flow meter for precision liquid flow metering without cutting pipes, process downtime, or pressure loss.",
+      "Transit-time clamp-on and hot-tap insertion ultrasonic flow meters for precision liquid flow metering without process downtime or pressure loss.",
     items: [
       {
         id: 3,
@@ -115,6 +121,34 @@ const FLOW_SECTIONS = [
           { description: "Outputs", material: "4-20mA, OCT Pulse, Modbus" },
         ],
       },
+      {
+        id: 8,
+        name: "2. Insertion Type Ultrasonic Flow Meter",
+        subCategory: "ULTRASONIC FLOW METER",
+        image: InsertionUltrasonic,
+        pdf: "/pdf/Flow/6.Ultrasonic_clamp_FM.pdf",
+        tag: "Hot-Tap Insertion",
+        specs: [
+          { description: "Installation", material: "Hot-Tap Wetted Insertion Sensors" },
+          { description: "Pipe Size", material: "DN50 to DN6000 mm" },
+          { description: "Accuracy", material: "±1.0% of reading" },
+          { description: "Medium", material: "Clear water applications only" },
+        ],
+      },
+      {
+        id: 9,
+        name: "3. Full Bore Ultrasonic Flow Meter",
+        subCategory: "ULTRASONIC FLOW METER",
+        image: FullBoreUltrasonic,
+        pdf: "/pdf/Flow/6.Ultrasonic_clamp_FM.pdf",
+        tag: "Full Bore Inline",
+        specs: [
+          { description: "Design", material: "Full Bore Stainless Steel Spool" },
+          { description: "Principle", material: "Inline Transit-Time Ultrasonic" },
+          { description: "Accuracy", material: "±0.5% to ±1.0% of reading" },
+          { description: "Protection", material: "IP67 / IP69K Stainless Steel Body" },
+        ],
+      },
     ],
   },
   {
@@ -123,11 +157,11 @@ const FLOW_SECTIONS = [
     subCatKey: "BTU METER",
     shortName: "3. BTU Meter",
     description:
-      "Thermal energy & BTU measurement combining ultrasonic flow measurement with high-precision matched PT1000 temperature sensors.",
+      "Thermal energy & BTU measurement systems engineered for chiller cooling and high-temperature thermic fluid heating applications with precision temperature difference sensing.",
     items: [
       {
         id: 5,
-        name: "1. BTU METER",
+        name: "1. BTU Meter for Chiller Application",
         subCategory: "BTU METER",
         image: BtuMeter,
         pdf: "/pdf/Flow/6.Ultrasonic_clamp_FM.pdf",
@@ -137,6 +171,34 @@ const FLOW_SECTIONS = [
           { description: "Sensors", material: "Ultrasonic Flow + Matched PT1000" },
           { description: "Protocols", material: "M-Bus, BACnet MS/TP, RS485" },
           { description: "Compliance", material: "EN1434 Class 2 Standard" },
+        ],
+      },
+      {
+        id: 10,
+        name: "2. BTU Meter for Heat Application",
+        subCategory: "BTU METER",
+        image: BtuMeterHeat,
+        pdf: "/pdf/Flow/6.Ultrasonic_clamp_FM.pdf",
+        tag: "Thermic Fluid",
+        specs: [
+          { description: "Application", material: "Thermic Fluid Heat Energy Transfer" },
+          { description: "Thermic Fluids", material: "Hytherm, Dowtherm, Therminol, Water" },
+          { description: "Engineering Units", material: "Kcal/hr, MKcal, m³/hr, °C" },
+          { description: "Data Logging", material: "Up to 5500 extended readings" },
+        ],
+      },
+      {
+        id: 11,
+        name: "3. Ultrasonic BTU Meter",
+        subCategory: "BTU METER",
+        image: BtuMeterUltrasonic,
+        pdf: "/pdf/Flow/6.Ultrasonic_clamp_FM.pdf",
+        tag: "Clamp-On BTU",
+        specs: [
+          { description: "Line Size", material: "DN50 to DN1500 mm" },
+          { description: "Principle", material: "Ultrasonic Clamp-On + Matched Temp" },
+          { description: "Output", material: "Isolated 4-20 mA Flow Proportional" },
+          { description: "Installation", material: "Non-invasive (No Pipe Cutting)" },
         ],
       },
     ],
@@ -151,16 +213,30 @@ const FLOW_SECTIONS = [
     items: [
       {
         id: 6,
-        name: "1. THERMAL MASS FLOW METER",
+        name: "1. Full Bore THERMAL MASS FLOW METER",
         subCategory: "THERMAL MASS FLOW METER",
-        image: ThermalMass,
+        image: FullBoreThermalMass,
         pdf: "/pdf/Flow/4.Thermalmass_FM.pdf",
-        tag: "Direct Mass",
+        tag: "Full Bore Inline",
         specs: [
-          { description: "Principle", material: "Thermal Dispersion (No Temp Comp)" },
-          { description: "Media", material: "Compressed Air, Biogas, N2, CO2" },
-          { description: "Turndown", material: "100:1 Dynamic Flow Range" },
-          { description: "Display", material: "Standard Mass Flow & Totalizer" },
+          { description: "Principle", material: "Direct Mass Flow (No Temp/Pressure Comp)" },
+          { description: "Turndown", material: "20:1 Wide Dynamic Turndown" },
+          { description: "Wireless", material: "Remote Readings & Wireless Data Transfer" },
+          { description: "Outputs", material: "Pulse, Milliamps & RS485 Networking" },
+        ],
+      },
+      {
+        id: 12,
+        name: "2. Thermal Mass Insertion Type",
+        subCategory: "THERMAL MASS FLOW METER",
+        image: ThermalMassInsertion,
+        pdf: "/pdf/Flow/4.Thermalmass_FM.pdf",
+        tag: "Insertion Type",
+        specs: [
+          { description: "Installation", material: "Adjustable pipe diameters 14 to 254 mm" },
+          { description: "Media", material: "Compressed Air" },
+          { description: "Pressure Rating", material: "16 bar (1.6 MPa)" },
+          { description: "Burst Pressure", material: "64 bar (6.4 MPa)" },
         ],
       },
     ],
@@ -191,8 +267,8 @@ const CATEGORY_SHOWCASE = [
         name: "Pressure Measurement",
         slug: "pressure measurement",
         image: pressureImg,
-        count: "2 Models",
-        subtitle: "Absolute, gauge & differential pressure transmitters for extreme processes.",
+        count: "7 Models",
+        subtitle: "Compact, high-accuracy, sanitary, submersible, pneumatic, hazardous & integral display transmitters.",
       },
       {
         name: "Temperature Measurement",
@@ -295,6 +371,16 @@ function ProductLists() {
     selectedCategory === "flow meter" ||
     selectedCategory === "flow-meter" ||
     selectedCategory === "flow";
+  const isLevelPage =
+    selectedCategory === "level measurement" ||
+    selectedCategory === "level meter" ||
+    selectedCategory === "level-meter" ||
+    selectedCategory === "level";
+  const isPressurePage =
+    selectedCategory === "pressure measurement" ||
+    selectedCategory === "pressure meter" ||
+    selectedCategory === "pressure-meter" ||
+    selectedCategory === "pressure";
 
   const isPillActive = (slug) => {
     if (isOverview && slug === "") return true;
@@ -358,7 +444,8 @@ function ProductLists() {
 
   const filtered = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
-    return products.filter((p) => {
+    return (products || []).filter((p) => {
+      if (!p) return false;
       const productType = (p.type || "").trim().toLowerCase();
       const productTypeName = (p.typeName || "").trim().toLowerCase();
 
@@ -835,59 +922,113 @@ function ProductLists() {
               </div>
             ) : (
               <StaggerGrid key={`${selectedCategory}-${searchQuery}`} className="cira-products-grid">
-                {filtered.map((item) => (
-                  <StaggerItem key={item.id} className="d-flex">
-                    <article className="cira-product-card w-100">
-                      <Link
-                        to={`/product/${item.id}`}
-                        className="cira-product-card__media"
-                        aria-label={`View details for ${item.name}`}
-                      >
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="cira-product-card__img"
-                          loading="lazy"
-                        />
-                        <span className="cira-product-card__badge">
-                          {item.typeName || item.type}
-                        </span>
-                      </Link>
+                {filtered.map((item) => {
+                  const isPressure =
+                    (item.type || "").trim().toLowerCase() === "pressure measurement" ||
+                    selectedCategory === "pressure measurement" ||
+                    selectedCategory === "pressure";
 
-                      <div className="cira-product-card__body">
-                        <h2 className="cira-product-card__title">
-                          <Link to={`/product/${item.id}`}>{item.name}</Link>
-                        </h2>
-                        <div className="cira-product-card__tags">
-                          <span className={`cira-pdf-tag ${item.pdf ? "has-pdf" : ""}`}>
-                            {item.pdf ? "PDF Datasheet Ready" : "Spec Sheet Soon"}
-                          </span>
-                          {item.specifications?.length > 0 && (
-                            <span className="cira-spec-tag">
-                              {item.specifications.length} Specs
-                            </span>
-                          )}
-                        </div>
-                      </div>
-
-                      <div className="cira-product-card__actions">
-                        <button
-                          type="button"
-                          className="cira-btn cira-btn--primary cira-btn--sm"
-                          onClick={() => handleOpenPdf(item)}
-                        >
-                          <FiFileText aria-hidden="true" /> Catalogue
-                        </button>
+                  if (isPressure) {
+                    return (
+                      <StaggerItem key={item.id} className="d-flex">
                         <Link
                           to={`/product/${item.id}`}
-                          className="cira-btn cira-btn--outline cira-btn--sm"
+                          className="cira-product-card w-100 cira-product-card--link"
+                          aria-label={`View details for ${item.name}`}
                         >
-                          <FiList aria-hidden="true" /> Details
+                          <div className="cira-product-card__media">
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              className="cira-product-card__img"
+                              loading="lazy"
+                            />
+                            <span className="cira-product-card__badge">
+                              {item.typeName || item.type}
+                            </span>
+                          </div>
+
+                          <div className="cira-product-card__body">
+                            <h2 className="cira-product-card__title">
+                              {item.name}
+                            </h2>
+                            <div className="cira-product-card__tags">
+                              <span className={`cira-pdf-tag ${item.pdf ? "has-pdf" : ""}`}>
+                                {item.pdf ? "PDF Datasheet Ready" : "Spec Sheet Soon"}
+                              </span>
+                              {item.applicationTable?.length > 0 && (
+                                <span className="cira-spec-tag">
+                                  {item.applicationTable.length} Application Specs
+                                </span>
+                              )}
+                              {item.specifications?.length > 0 && (
+                                <span className="cira-spec-tag">
+                                  {item.specifications.length} Specs
+                                </span>
+                              )}
+                            </div>
+                          </div>
                         </Link>
-                      </div>
-                    </article>
-                  </StaggerItem>
-                ))}
+                      </StaggerItem>
+                    );
+                  }
+
+                  return (
+                    <StaggerItem key={item.id} className="d-flex">
+                      <article className="cira-product-card w-100">
+                        <Link
+                          to={`/product/${item.id}`}
+                          className="cira-product-card__media"
+                          aria-label={`View details for ${item.name}`}
+                        >
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="cira-product-card__img"
+                            loading="lazy"
+                          />
+                          <span className="cira-product-card__badge">
+                            {item.typeName || item.type}
+                          </span>
+                        </Link>
+
+                        <div className="cira-product-card__body">
+                          <h2 className="cira-product-card__title">
+                            <Link to={`/product/${item.id}`}>{item.name}</Link>
+                          </h2>
+                          <div className="cira-product-card__tags">
+                            <span className={`cira-pdf-tag ${item.pdf ? "has-pdf" : ""}`}>
+                              {item.pdf ? "PDF Datasheet Ready" : "Spec Sheet Soon"}
+                            </span>
+                            {item.specifications?.length > 0 && (
+                              <span className="cira-spec-tag">
+                                {item.specifications.length} Specs
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="cira-product-card__actions">
+                          {item.pdf && (
+                            <button
+                              type="button"
+                              className="cira-btn cira-btn--primary cira-btn--sm"
+                              onClick={() => handleOpenPdf(item)}
+                            >
+                              <FiFileText aria-hidden="true" /> Catalogue
+                            </button>
+                          )}
+                          <Link
+                            to={`/product/${item.id}`}
+                            className={`cira-btn ${item.pdf ? "cira-btn--outline" : "cira-btn--primary"} cira-btn--sm ${item.pdf ? "" : "w-100 d-inline-flex justify-content-center align-items-center"}`}
+                          >
+                            <FiList aria-hidden="true" /> Details
+                          </Link>
+                        </div>
+                      </article>
+                    </StaggerItem>
+                  );
+                })}
               </StaggerGrid>
             )}
           </>

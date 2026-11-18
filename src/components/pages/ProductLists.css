@@ -212,6 +212,24 @@
   color: inherit;
 }
 
+a.cira-product-card,
+.cira-product-card--link {
+  text-decoration: none !important;
+  color: inherit !important;
+  cursor: pointer;
+}
+
+a.cira-product-card:hover,
+.cira-product-card--link:hover {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+a.cira-product-card:hover .cira-product-card__title,
+.cira-product-card--link:hover .cira-product-card__title {
+  color: var(--cira-red-600);
+}
+
 .cira-product-card__media {
   position: relative;
   aspect-ratio: 4 / 3;

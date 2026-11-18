@@ -207,3 +207,110 @@
   font-weight: 600;
   color: var(--cira-navy-900);
 }
+
+/* ==========================================================================
+   Manufacturer Application Table (Matching Exact Datasheet Layout)
+   ========================================================================== */
+
+.cira-application-card {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  background: #ffffff;
+  border: 1px solid var(--cira-border, #e2e8f0);
+  border-radius: var(--radius-md, 8px);
+}
+
+.cira-app-table-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.cira-app-table-title {
+  color: #5b7a9c;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.cira-app-table-line {
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+  margin-left: 1rem;
+}
+
+.cira-app-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  border: 1px solid #edf2f7;
+}
+
+.cira-app-table tbody tr {
+  border-bottom: 1px solid #edf2f7;
+  transition: background-color 0.15s ease;
+}
+
+.cira-app-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.cira-app-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.cira-app-prop {
+  width: 32%;
+  min-width: 180px;
+  font-weight: 600;
+  color: #1e293b;
+  padding: 0.7rem 1.15rem;
+  vertical-align: middle;
+  background: #fafbfc;
+  border-right: 1px solid #edf2f7;
+}
+
+.cira-app-vals {
+  padding: 0.7rem 1.15rem;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.cira-app-multivals {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  flex-wrap: wrap;
+}
+
+.cira-app-val-item {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  color: #1e293b;
+}
+
+@media (max-width: 640px) {
+  .cira-application-card {
+    padding: 1.15rem 1rem;
+  }
+
+  .cira-app-prop {
+    width: 40%;
+    min-width: 140px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.84rem;
+  }
+
+  .cira-app-vals {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.84rem;
+  }
+
+  .cira-app-multivals {
+    gap: 1rem;
+  }
+}
+

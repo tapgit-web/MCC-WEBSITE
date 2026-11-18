@@ -11,6 +11,7 @@ import ProductLists from './components/pages/ProductLists';
 import ProductDetails from './components/pages/ProductDetails';
 import ScrollToTop from './components/ScrollToTop';
 import { ScrollProgressBar, PageTransition } from './components/animation/MotionPrimitives';
+import ErrorBoundary from './components/common/ErrorBoundary';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -46,7 +47,9 @@ function App() {
         <Navbar />
 
         <main id="main-content" className="app-main">
-          <AnimatedRoutes />
+          <ErrorBoundary>
+            <AnimatedRoutes />
+          </ErrorBoundary>
         </main>
 
         <Footer />

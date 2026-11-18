@@ -9,37 +9,38 @@ const MEGA_NAV_CATEGORIES = [
     id: "flow",
     label: "Flow Measurement",
     slug: "flow measurement",
-    badge: "5 Sub-types",
+    badge: "4 Subcategories • 12 Models",
     sections: [
       {
         title: "1. ELECTROMAGNETIC FLOW METER",
         items: [
-          { name: "1. Insertion Type Electromagnetic Flow Meter SR1000i", path: "/products/flow%20measurement" },
-          { name: "2. Battery Operated Electromagnetic Flow Meter SS1021", path: "/products/flow%20measurement" },
+          { name: "1. Full Bore Electromagnetic Flow Meter SR1000A", path: "/product/1" },
+          { name: "2. Insertion Type Electromagnetic Flow Meter SR1000i", path: "/product/7" },
+          { name: "3. Battery Operated Electromagnetic Flow Meter SS1021", path: "/product/2" },
+          { name: "4. Solar Powered Electromagnetic Flow Meter", path: "/product/4" },
         ],
       },
       {
         title: "2. ULTRASONIC FLOW METER",
         items: [
-          { name: "1. Clamp On Type Ultrasonic Flow Meter", path: "/products/flow%20measurement" },
+          { name: "1. Clamp On Type Ultrasonic Flow Meter", path: "/product/3" },
+          { name: "2. Insertion Type Ultrasonic Flow Meter", path: "/product/8" },
+          { name: "3. Full Bore Ultrasonic Flow Meter", path: "/product/9" },
         ],
       },
       {
-        title: "3. SOLAR POWERED FLOW METER",
+        title: "3. BTU METER",
         items: [
-          { name: "1. SOLAR POWERED FLOW METER", path: "/products/flow%20measurement" },
+          { name: "1. BTU Meter for Chiller Application", path: "/product/5" },
+          { name: "2. BTU Meter for Heat Application", path: "/product/10" },
+          { name: "3. Ultrasonic BTU Meter", path: "/product/11" },
         ],
       },
       {
-        title: "4. BTU METER",
+        title: "4. THERMAL MASS FLOW METER",
         items: [
-          { name: "1. BTU METER", path: "/products/flow%20measurement" },
-        ],
-      },
-      {
-        title: "5. THERMAL MASS FLOW METER",
-        items: [
-          { name: "1. THERMAL MASS FLOW METER", path: "/products/flow%20measurement" },
+          { name: "1. Full Bore THERMAL MASS FLOW METER", path: "/product/6" },
+          { name: "2. Thermal Mass Insertion Type", path: "/product/12" },
         ],
       },
     ],
@@ -51,26 +52,26 @@ const MEGA_NAV_CATEGORIES = [
     badge: "8 Models",
     sections: [
       {
-        title: "Non-Contact Level Sensors",
+        title: "Non-Contact Level Transmitters",
         items: [
-          { name: "Radar Level Transmitter", path: "/products/level%20measurement" },
-          { name: "Guided Wave Radar Level", path: "/products/level%20measurement" },
-          { name: "Ultrasonic Level Transmitter", path: "/products/level%20measurement" },
+          { name: "Radar Level Transmitter", path: "/product/21" },
+          { name: "Guided Wave Radar Level", path: "/product/22" },
+          { name: "Ultrasonic Level Transmitter", path: "/product/23" },
         ],
       },
       {
         title: "Continuous & Hydrostatic",
         items: [
-          { name: "Differential Pressure (DP) Level", path: "/products/level%20measurement" },
-          { name: "Hydrostatic Level Transmitter", path: "/products/level%20measurement" },
-          { name: "Capacitance Level Transmitter", path: "/products/level%20measurement" },
+          { name: "Differential Pressure (DP) Level", path: "/product/24" },
+          { name: "Hydrostatic Level Transmitter", path: "/product/26" },
+          { name: "Capacitance Level Transmitter", path: "/product/27" },
         ],
       },
       {
         title: "Point Level & Switches",
         items: [
-          { name: "Point Level Switch", path: "/products/level%20measurement" },
-          { name: "Float Switch", path: "/products/level%20measurement" },
+          { name: "Point Level Switch", path: "/product/25" },
+          { name: "Float Switch", path: "/product/28" },
         ],
       },
     ],
@@ -79,13 +80,23 @@ const MEGA_NAV_CATEGORIES = [
     id: "pressure",
     label: "Pressure Measurement",
     slug: "pressure measurement",
-    badge: "Transmitters",
+    badge: "7 Models",
     sections: [
       {
-        title: "Process Pressure Transmitters",
+        title: "Industrial Pressure Transmitters",
         items: [
-          { name: "Absolute & Gauge Pressure Measurement", path: "/products/pressure%20measurement" },
-          { name: "Differential Pressure (DP) Flow & Level", path: "/products/pressure%20measurement" },
+          { name: "Compact Pressure Transmitter", path: "/product/40" },
+          { name: "Transmitters For High Accuracy", path: "/product/41" },
+          { name: "Transmitter With Integral Display", path: "/product/42" },
+          { name: "Transmitter For Pneumatic Application", path: "/product/47" },
+        ],
+      },
+      {
+        title: "Sanitary, Submersible & Hazardous",
+        items: [
+          { name: "Transmitters For Sanitary Application", path: "/product/45" },
+          { name: "Transmitters For Submersible Application", path: "/product/46" },
+          { name: "Transmitters For Hazardous Application", path: "/product/48" },
         ],
       },
     ],
@@ -94,13 +105,13 @@ const MEGA_NAV_CATEGORIES = [
     id: "temperature",
     label: "Temperature Measurement",
     slug: "temperature measurement",
-    badge: "Transmitters",
+    badge: "2 Models",
     sections: [
       {
-        title: "Temperature Sensors & Heads",
+        title: "Temperature Sensors & Transmitters",
         items: [
-          { name: "Head Mount Temperature Transmitter", path: "/products/temperature%20measurement" },
-          { name: "Float Mount Temperature Sensor", path: "/products/temperature%20measurement" },
+          { name: "Head Mount Temperature Transmitter", path: "/product/43" },
+          { name: "Float Mount Temperature Sensor", path: "/product/44" },
         ],
       },
     ],
@@ -109,20 +120,22 @@ const MEGA_NAV_CATEGORIES = [
     id: "vibration",
     label: "Vibration Monitoring",
     slug: "vibration monitoring",
-    badge: "Condition Monitoring",
+    badge: "6 Models",
     sections: [
       {
-        title: "Sensors & Transmitters",
+        title: "Sensors & Velocity Transmitters",
         items: [
-          { name: "Industrial Vibration Sensors", path: "/products/vibration%20monitoring" },
-          { name: "Vibration Velocity - IRD301", path: "/products/vibration%20monitoring" },
+          { name: "Vibration Sensors", path: "/product/120" },
+          { name: "Vibration Velocity - IRD301", path: "/product/121" },
+          { name: "Vibration Velocity and Displacement - IRD306", path: "/product/124" },
         ],
       },
       {
-        title: "Condition Monitoring Systems",
+        title: "Displacement & Condition Monitoring",
         items: [
-          { name: "Vibration Velocity & Displacement - IRD306DP", path: "/products/vibration%20monitoring" },
-          { name: "Vibration Amplitude & Bearing Condition - IRD304B", path: "/products/vibration%20monitoring" },
+          { name: "Vibration Vibvelocity & Displacement - IRD306DP", path: "/product/122" },
+          { name: "Vibration Amplitude Bearing Condition - IRD811D", path: "/product/123" },
+          { name: "Vibration Amplitude and Bearing Condition - IRD811", path: "/product/125" },
         ],
       },
     ],
@@ -131,26 +144,27 @@ const MEGA_NAV_CATEGORIES = [
     id: "valves",
     label: "Control & ON/OFF Valves",
     slug: "valve",
-    badge: "Ball & Butterfly",
+    badge: "11 Models",
     sections: [
       {
-        title: "Ball Valves",
+        title: "Ball Valves (7 Models)",
         items: [
-          { name: "2 Pcs Ball Valve", path: "/products/ball%20valve" },
-          { name: "3 Pcs Ball Valve", path: "/products/ball%20valve" },
-          { name: "3 / 4 Way Ball Valve", path: "/products/ball%20valve" },
-          { name: "Wafer Type Ball Valve", path: "/products/ball%20valve" },
-          { name: "FEP / PFA Lined Ball Valve", path: "/products/ball%20valve" },
-          { name: "UPVC & PP Ball Valves", path: "/products/ball%20valve" },
+          { name: "2 Pcs Ball Valve", path: "/product/50" },
+          { name: "3 Pcs Ball Valve", path: "/product/52" },
+          { name: "3 / 4 Way Ball Valve", path: "/product/53" },
+          { name: "Wafer Type Ball Valve", path: "/product/54" },
+          { name: "FEP / PFA Lined Ball Valve", path: "/product/55" },
+          { name: "UPVC Ball Valve", path: "/product/56" },
+          { name: "PP Ball Valve", path: "/product/57" },
         ],
       },
       {
-        title: "Butterfly Valves",
+        title: "Butterfly Valves (4 Models)",
         items: [
-          { name: "Rubber Lined Butterfly Valve", path: "/products/butterfly%20valve" },
-          { name: "Double Flanged Butterfly Valve", path: "/products/butterfly%20valve" },
-          { name: "Lug Type Butterfly Valve", path: "/products/butterfly%20valve" },
-          { name: "FEP / PFA Lined Butterfly Valve", path: "/products/butterfly%20valve" },
+          { name: "Rubber Lined Butterfly Valve", path: "/product/58" },
+          { name: "Double Flanged Butterfly Valve", path: "/product/59" },
+          { name: "Lug Type Butterfly Valve", path: "/product/60" },
+          { name: "FEP / PFA Lined Butterfly Valve", path: "/product/61" },
         ],
       },
     ],

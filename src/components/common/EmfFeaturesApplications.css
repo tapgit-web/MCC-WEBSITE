@@ -24,6 +24,10 @@
     grid-template-columns: 1.15fr 1fr;
     gap: 2.75rem;
   }
+
+  .emf-info-grid.emf-info-grid--single-col {
+    grid-template-columns: 1fr;
+  }
 }
 
 .emf-info-col {

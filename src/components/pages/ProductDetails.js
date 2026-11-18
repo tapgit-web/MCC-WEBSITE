@@ -11,7 +11,7 @@ function ProductDetails() {
   const { id } = useParams();
   const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
 
-  const product = products.find((p) => String(p.id) === String(id));
+  const product = (products || []).find((p) => p && String(p.id) === String(id));
 
   if (!product) {
     return (
@@ -118,13 +118,97 @@ function ProductDetails() {
               </dl>
             </div>
 
-            {/* Electromagnetic Flow Meter Features & Applications */}
-            {product.id === 7 ? (
+            {/* Technical Specifications Table */}
+            {product.specifications && product.specifications.length > 0 && (
+              <div className="cira-details-card">
+                <div className="cira-details-card__head">
+                  <FiLayers aria-hidden="true" />
+                  <h2>Technical &amp; Operating Specifications</h2>
+                </div>
+                <div className="cira-table-wrap">
+                  <table className="cira-specs-table">
+                    <thead>
+                      <tr>
+                        <th scope="col" style={{ width: "55px" }}>#</th>
+                        <th scope="col">Parameter / Specification</th>
+                        <th scope="col">Description / Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {product.specifications.map((spec, index) => (
+                        <tr key={index}>
+                          <td className="cira-spec-num">{spec.no || index + 1}</td>
+                          <td className="cira-spec-desc">{spec.description}</td>
+                          <td>{spec.material}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {/* Manufacturer Application Table */}
+            {product.applicationTable && product.applicationTable.length > 0 && (
+              <div className="cira-details-card cira-application-card">
+                <div className="cira-app-table-header">
+                  <h2 className="cira-app-table-title">Application</h2>
+                  <div className="cira-app-table-line" aria-hidden="true" />
+                </div>
+                <div className="cira-table-wrap">
+                  <table className="cira-app-table">
+                    <tbody>
+                      {product.applicationTable.map((row, idx) => (
+                        <tr key={idx}>
+                          <td className="cira-app-prop">{row.property}</td>
+                          <td className="cira-app-vals">
+                            {row.values.length === 1 ? (
+                              <span>{row.values[0]}</span>
+                            ) : (
+                              <div className="cira-app-multivals">
+                                {row.values.map((v, i) => (
+                                  <span key={i} className="cira-app-val-item">{v}</span>
+                                ))}
+                              </div>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {/* Features & Applications */}
+            {product.id === 6 ? (
+              <EmfFeaturesApplications variant="thermal-mass" />
+            ) : product.id === 21 ? (
+              <EmfFeaturesApplications variant="radar-level" />
+            ) : product.id === 22 ? (
+              <EmfFeaturesApplications variant="guided-wave-radar" />
+            ) : product.id === 23 ? (
+              <EmfFeaturesApplications variant="ultrasonic-level" />
+            ) : product.id === 25 ? (
+              <EmfFeaturesApplications variant="point-level" />
+            ) : product.id === 26 ? (
+              <EmfFeaturesApplications variant="hydrostatic-level" />
+            ) : product.id === 7 ? (
               <EmfFeaturesApplications variant="insertion" />
             ) : product.id === 2 ? (
               <EmfFeaturesApplications variant="battery" />
             ) : product.id === 4 ? (
               <EmfFeaturesApplications variant="solar" />
+            ) : product.id === 8 ? (
+              <EmfFeaturesApplications variant="ultrasonic-insertion" />
+            ) : product.id === 3 ? (
+              <EmfFeaturesApplications variant="ultrasonic" />
+            ) : product.id === 11 ? (
+              <EmfFeaturesApplications variant="btu-ultrasonic" />
+            ) : product.id === 10 ? (
+              <EmfFeaturesApplications variant="btu-heat" />
+            ) : product.id === 5 || product.subCategory === "BTU METER" ? (
+              <EmfFeaturesApplications variant="btu" />
             ) : (product.id === 1 || product.subCategory === "ELECTROMAGNETIC FLOW METER") ? (
               <EmfFeaturesApplications variant="full-bore" />
             ) : null}
