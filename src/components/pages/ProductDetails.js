@@ -5,6 +5,7 @@ import products from "../../data/products";
 import "./ProductDetails.css";
 import PdfViewerModal from "../common/PdfViewerModal";
 import EmfFeaturesApplications from "../common/EmfFeaturesApplications";
+import FlowRateTable from "../common/FlowRateTable";
 
 function ProductDetails() {
   const navigate = useNavigate();
@@ -146,6 +147,15 @@ function ProductDetails() {
                   </table>
                 </div>
               </div>
+            )}
+
+            {/* Flow Rate Reference Sizing Table */}
+            {(product.id === 1 || (product.name || "").toLowerCase().includes("full bore electromagnetic")) && (
+              <FlowRateTable variant="full-bore" />
+            )}
+
+            {(product.id === 7 || (product.name || "").toLowerCase().includes("insertion type electromagnetic")) && (
+              <FlowRateTable variant="insertion" />
             )}
 
             {/* Manufacturer Application Table */}

@@ -4,7 +4,6 @@ import { FiSearch, FiFileText, FiList, FiCpu, FiCheckCircle, FiArrowRight, FiGri
 import products from "../../data/products";
 import "./ProductLists.css";
 import PdfViewerModal from "../common/PdfViewerModal";
-import FlowRateTable from "../common/FlowRateTable";
 import AnimatedSection from "../animation/AnimatedSection";
 import { StaggerGrid, StaggerItem } from "../animation/MotionPrimitives";
 
@@ -43,11 +42,11 @@ const FLOW_SECTIONS = [
     items: [
       {
         id: 1,
-        name: "1. Full Bore Electromagnetic Flow Meter SR1000A",
+        name: "1. Full Bore Electromagnetic Flow Meter",
         subCategory: "ELECTROMAGNETIC FLOW METER",
         image: FullBoreSR1000A,
         pdf: "/pdf/Flow/1.EMF.pdf",
-        tag: "SR1000A",
+        tag: "Full Bore",
         specs: [
           { description: "Design", material: "Full Bore Flanged Spool" },
           { description: "Line Size", material: "DN10 to DN1600 mm" },
@@ -57,11 +56,11 @@ const FLOW_SECTIONS = [
       },
       {
         id: 7,
-        name: "2. Insertion Type Electromagnetic Flow Meter SR1000i",
+        name: "2. Insertion Type Electromagnetic Flow Meter",
         subCategory: "ELECTROMAGNETIC FLOW METER",
         image: InsertionSR1000i,
         pdf: "/pdf/Flow/1.EMF.pdf",
-        tag: "SR1000i",
+        tag: "Insertion Type",
         specs: [
           { description: "Design", material: "Hot-Tap Insertion Spool" },
           { description: "Line Size", material: "DN100 to DN3000 mm" },
@@ -71,11 +70,11 @@ const FLOW_SECTIONS = [
       },
       {
         id: 2,
-        name: "3. Battery Operated Electromagnetic Flow Meter SS1021",
+        name: "3. Battery Operated Electromagnetic Flow Meter",
         subCategory: "ELECTROMAGNETIC FLOW METER",
         image: BatteryOperatedSS1021,
         pdf: "/pdf/Flow/1.EMF.pdf",
-        tag: "SS1021",
+        tag: "Battery Operated",
         specs: [
           { description: "Power", material: "5 to 10 Year Battery Life" },
           { description: "Bore Size", material: "DN15 to DN1200 mm flanged" },
@@ -848,10 +847,7 @@ function ProductLists() {
                         </span>
                       </div>
 
-                      {/* Flow Rate Reference Sizing Table (Displayed First for Electromagnetic Flow Meter) */}
-                      {sec.id === "electromagnetic" && <FlowRateTable />}
-
-                      {/* Products Grid (Displayed Next) */}
+                      {/* Products Grid */}
                       <div className={`cira-products-grid ${sec.items.length === 1 ? "cira-products-grid--single" : ""}`}>
                         {sec.items.map((item) => (
                           <Link
@@ -867,7 +863,7 @@ function ProductLists() {
                                 className="cira-product-card__img"
                                 loading="lazy"
                               />
-                              <span className="cira-product-card__badge">{item.tag}</span>
+                              {item.tag && <span className="cira-product-card__badge">{item.tag}</span>}
                             </div>
 
                             <div className="cira-product-card__details">

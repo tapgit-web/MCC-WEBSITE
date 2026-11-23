@@ -14,9 +14,9 @@ const MEGA_NAV_CATEGORIES = [
       {
         title: "1. ELECTROMAGNETIC FLOW METER",
         items: [
-          { name: "1. Full Bore Electromagnetic Flow Meter SR1000A", path: "/product/1" },
-          { name: "2. Insertion Type Electromagnetic Flow Meter SR1000i", path: "/product/7" },
-          { name: "3. Battery Operated Electromagnetic Flow Meter SS1021", path: "/product/2" },
+          { name: "1. Full Bore Electromagnetic Flow Meter", path: "/product/1" },
+          { name: "2. Insertion Type Electromagnetic Flow Meter", path: "/product/7" },
+          { name: "3. Battery Operated Electromagnetic Flow Meter", path: "/product/2" },
           { name: "4. Solar Powered Electromagnetic Flow Meter", path: "/product/4" },
         ],
       },

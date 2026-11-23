@@ -3,7 +3,7 @@ import { FLOW_RATE_TABLE_DATA } from "../../data/flowRateTable";
 import "./FlowRateTable.css";
 import { FiSearch, FiSliders } from "react-icons/fi";
 
-const FlowRateTable = () => {
+const FlowRateTable = ({ variant = "all" }) => {
   const [filterDn, setFilterDn] = useState("");
 
   const query = filterDn.trim();
@@ -12,6 +12,10 @@ const FlowRateTable = () => {
     if (!query) return false;
     return String(dnVal).includes(query);
   };
+
+  const showSmall = variant === "all" || variant === "small" || variant === "full-bore";
+  const showLarge = variant === "all" || variant === "large" || variant === "insertion";
+  const isSingle = (showSmall && !showLarge) || (showLarge && !showSmall);
 
   return (
     <div className="cira-flowrate-card" aria-label="Electromagnetic Flow Meter Flow Rate Table">
@@ -34,76 +38,80 @@ const FlowRateTable = () => {
         </div>
       </div>
 
-      <div className="cira-flowrate-tables-grid">
+      <div className={`cira-flowrate-tables-grid ${isSingle ? "cira-flowrate-tables-grid--single" : ""}`}>
         {/* Left Table: Standard Line Sizes (DN 10 to DN 350) */}
-        <div className="cira-flowrate-col">
-          <div className="cira-flowrate-col__head">
-            <h4 className="cira-flowrate-col__title">Flow Rate Table</h4>
-            <span className="cira-flowrate-col__cond">(Flow rate at v = 1 m/s)</span>
-          </div>
+        {showSmall && (
+          <div className="cira-flowrate-col">
+            <div className="cira-flowrate-col__head">
+              <h4 className="cira-flowrate-col__title">Flow Rate Table</h4>
+              <span className="cira-flowrate-col__cond">(Flow rate at v = 1 m/s)</span>
+            </div>
 
-          <div className="cira-flowrate-table-wrap">
-            <table className="cira-flowrate-table">
-              <thead>
-                <tr>
-                  <th>DN</th>
-                  <th>M3/Hr.</th>
-                  <th>LPM</th>
-                  <th>LPS</th>
-                </tr>
-              </thead>
-              <tbody>
-                {FLOW_RATE_TABLE_DATA.smallSizes.map((row) => {
-                  const highlighted = isMatched(row.dn);
-                  return (
-                    <tr key={row.dn} className={highlighted ? "is-highlighted" : ""}>
-                      <td className="dn-cell">{row.dn}</td>
-                      <td className="num-cell">{row.m3hr}</td>
-                      <td className="num-cell">{row.lpm}</td>
-                      <td className="num-cell">{row.lps}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <div className="cira-flowrate-table-wrap">
+              <table className="cira-flowrate-table">
+                <thead>
+                  <tr>
+                    <th>DN</th>
+                    <th>M3/Hr.</th>
+                    <th>LPM</th>
+                    <th>LPS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {FLOW_RATE_TABLE_DATA.smallSizes.map((row) => {
+                    const highlighted = isMatched(row.dn);
+                    return (
+                      <tr key={row.dn} className={highlighted ? "is-highlighted" : ""}>
+                        <td className="dn-cell">{row.dn}</td>
+                        <td className="num-cell">{row.m3hr}</td>
+                        <td className="num-cell">{row.lpm}</td>
+                        <td className="num-cell">{row.lps}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Right Table: Large Conduits (DN 400 to DN 1600) */}
-        <div className="cira-flowrate-col">
-          <div className="cira-flowrate-col__head">
-            <h4 className="cira-flowrate-col__title">Flow Rate Table</h4>
-            <span className="cira-flowrate-col__cond">(Flow rate at v = 1 m/s)</span>
-          </div>
+        {showLarge && (
+          <div className="cira-flowrate-col">
+            <div className="cira-flowrate-col__head">
+              <h4 className="cira-flowrate-col__title">Flow Rate Table</h4>
+              <span className="cira-flowrate-col__cond">(Flow rate at v = 1 m/s)</span>
+            </div>
 
-          <div className="cira-flowrate-table-wrap">
-            <table className="cira-flowrate-table">
-              <thead>
-                <tr>
-                  <th>DN</th>
-                  <th>M3/Hr.</th>
-                  <th>LPM</th>
-                  <th>LPS</th>
-                  <th>MLD</th>
-                </tr>
-              </thead>
-              <tbody>
-                {FLOW_RATE_TABLE_DATA.largeSizes.map((row) => {
-                  const highlighted = isMatched(row.dn);
-                  return (
-                    <tr key={row.dn} className={highlighted ? "is-highlighted" : ""}>
-                      <td className="dn-cell">{row.dn}</td>
-                      <td className="num-cell">{row.m3hr}</td>
-                      <td className="num-cell">{row.lpm}</td>
-                      <td className="num-cell">{row.lps}</td>
-                      <td className="num-cell">{row.mld}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <div className="cira-flowrate-table-wrap">
+              <table className="cira-flowrate-table">
+                <thead>
+                  <tr>
+                    <th>DN</th>
+                    <th>M3/Hr.</th>
+                    <th>LPM</th>
+                    <th>LPS</th>
+                    <th>MLD</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {FLOW_RATE_TABLE_DATA.largeSizes.map((row) => {
+                    const highlighted = isMatched(row.dn);
+                    return (
+                      <tr key={row.dn} className={highlighted ? "is-highlighted" : ""}>
+                        <td className="dn-cell">{row.dn}</td>
+                        <td className="num-cell">{row.m3hr}</td>
+                        <td className="num-cell">{row.lpm}</td>
+                        <td className="num-cell">{row.lps}</td>
+                        <td className="num-cell">{row.mld}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <div className="cira-flowrate-footer">

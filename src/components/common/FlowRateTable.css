@@ -83,11 +83,17 @@
   align-items: start;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   .cira-flowrate-tables-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     gap: 1.5rem;
   }
+}
+
+.cira-flowrate-tables-grid--single {
+  grid-template-columns: 1fr !important;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 .cira-flowrate-col {
