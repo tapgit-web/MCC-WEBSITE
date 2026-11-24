@@ -254,7 +254,7 @@ export const GUIDED_WAVE_RADAR_APPLICATIONS = {
     "Oil-based media and liquid lubricants",
     "Industrial processing and storage tanks",
     "Machine tool coolant reservoirs",
-    "Hydraulic and power pack tanks",
+    "Hydraulic Power Pack",
   ],
 };
 
@@ -408,7 +408,7 @@ export const THERMAL_MASS_FEATURES = [
   "No pressure or temperature compensation required",
   "20:1 turndown ratio",
   "Wireless data transfer is possible. Remote readings are available on wireless",
-  "Pulse, milliamps, and RS485 output for networking",
+  "Pulse, 4-20mA, and RS485 output for networking",
 ];
 
 export const THERMAL_MASS_APPLICATIONS = {
@@ -422,6 +422,29 @@ export const THERMAL_MASS_APPLICATIONS = {
     "Furnace and burner control",
     "Biogas measurement and digester and ahead",
     "HVAC applications",
+  ],
+};
+
+export const FUEL_GAS_FEATURES = [
+  "ATEX / IECEx certified explosion-proof flameproof enclosure for Zone 1 and Zone 2 hazardous areas",
+  "Direct measurement of mass flow for natural gas, biogas, LPG, and combustible gas mixtures",
+  "No external pressure or temperature compensation required",
+  "Wide dynamic turndown ratio (up to 100:1) for low-pressure boiler & furnace firing lines",
+  "Pulse, 4-20mA, and RS485 Modbus RTU communication outputs for networking",
+  "Robust IP67 / IP68 ingress protection with flameproof terminal housing",
+];
+
+export const FUEL_GAS_APPLICATIONS = {
+  title: "Applications",
+  description: "Specially designed for safe, highly accurate mass flow measurement in hazardous and combustible fuel gas environments.",
+  industryTitle: "Key Fuel Gas Applications:",
+  industries: [
+    "Natural gas consumption & burner fuel line monitoring",
+    "Furnace and boiler fuel gas feed control",
+    "Biogas flow measurement in anaerobic digesters and flare lines",
+    "LPG, Propane, and butane distribution pipelines",
+    "Gas turbine & cogeneration fuel metering",
+    "Chemical plants, refineries, and petrochemical hazardous zones",
   ],
 };
 

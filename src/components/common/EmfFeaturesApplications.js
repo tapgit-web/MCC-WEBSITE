@@ -36,6 +36,8 @@ import {
   INTEGRAL_DISPLAY_PRESSURE_APPLICATIONS,
   THERMAL_MASS_FEATURES,
   THERMAL_MASS_APPLICATIONS,
+  FUEL_GAS_FEATURES,
+  FUEL_GAS_APPLICATIONS,
 } from "../../data/electromagneticFeatures";
 import "./EmfFeaturesApplications.css";
 
@@ -132,6 +134,12 @@ function EmfFeaturesApplications({ variant = "full-bore" }) {
     featuresTitle = "Features";
     applicationsTitle = "Applications";
     ariaLabel = "Full Bore Thermal Mass Flow Meter Features and Applications";
+  } else if (variant === "fuel-gas" || variant === "fuel-gas-flowmeter") {
+    features = FUEL_GAS_FEATURES;
+    applications = FUEL_GAS_APPLICATIONS;
+    featuresTitle = "Features";
+    applicationsTitle = "Applications";
+    ariaLabel = "Flowmeter For Fuel Gas Applications Features and Applications";
   }
 
   if (

@@ -191,7 +191,9 @@ function ProductDetails() {
             )}
 
             {/* Features & Applications */}
-            {product.id === 6 ? (
+            {product.id === 13 ? (
+              <EmfFeaturesApplications variant="fuel-gas" />
+            ) : product.id === 6 ? (
               <EmfFeaturesApplications variant="thermal-mass" />
             ) : product.id === 21 ? (
               <EmfFeaturesApplications variant="radar-level" />

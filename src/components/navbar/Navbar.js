@@ -9,7 +9,7 @@ const MEGA_NAV_CATEGORIES = [
     id: "flow",
     label: "Flow Measurement",
     slug: "flow measurement",
-    badge: "4 Subcategories • 12 Models",
+    badge: "4 Subcategories • 13 Models",
     sections: [
       {
         title: "1. ELECTROMAGNETIC FLOW METER",
@@ -41,6 +41,7 @@ const MEGA_NAV_CATEGORIES = [
         items: [
           { name: "1. Full Bore THERMAL MASS FLOW METER", path: "/product/6" },
           { name: "2. Thermal Mass Insertion Type", path: "/product/12" },
+          { name: "3. Flowmeter For Fuel Gas Applications", path: "/product/13" },
         ],
       },
     ],

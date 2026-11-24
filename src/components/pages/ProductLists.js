@@ -21,6 +21,7 @@ import BtuMeterUltrasonic from "../images/product/flow/BTUMeter_Ultrasonic.png";
 import ThermalMass from "../images/product/flow/THERMAL MASS FLOWMETER1.jpg";
 import FullBoreThermalMass from "../images/product/flow/FullBore_ThermalMass.png";
 import ThermalMassInsertion from "../images/product/flow/ThermalMass_Insertion.jpg";
+import FuelGasThermalMass from "../images/product/flow/FuelGas_ThermalMass_ATEX.png";
 import levelImg from "../images/product/level/RadarLevel.jpeg";
 import pressureImg from "../images/product/pressure/Compact_Pressure_Transmitter.png";
 import tempImg from "../images/product/temperature/head.png";
@@ -167,9 +168,9 @@ const FLOW_SECTIONS = [
         tag: "EN1434 Class 2",
         specs: [
           { description: "Application", material: "Chilled & Hot Water Energy Meter" },
-          { description: "Sensors", material: "Ultrasonic Flow + Matched PT1000" },
-          { description: "Protocols", material: "M-Bus, BACnet MS/TP, RS485" },
-          { description: "Compliance", material: "EN1434 Class 2 Standard" },
+          { description: "Sensors", material: "Electromagnetic Flow + Matched PT1000" },
+          { description: "Outputs", material: "4-20mA, Pulse, RS485 Modbus" },
+          { description: "Power Supply", material: "24V DC / 230V AC" },
         ],
       },
       {
@@ -221,7 +222,7 @@ const FLOW_SECTIONS = [
           { description: "Principle", material: "Direct Mass Flow (No Temp/Pressure Comp)" },
           { description: "Turndown", material: "20:1 Wide Dynamic Turndown" },
           { description: "Wireless", material: "Remote Readings & Wireless Data Transfer" },
-          { description: "Outputs", material: "Pulse, Milliamps & RS485 Networking" },
+          { description: "Outputs", material: "Pulse, 4-20mA & RS485 Networking" },
         ],
       },
       {
@@ -232,10 +233,24 @@ const FLOW_SECTIONS = [
         pdf: "/pdf/Flow/4.Thermalmass_FM.pdf",
         tag: "Insertion Type",
         specs: [
-          { description: "Installation", material: "Adjustable pipe diameters 14 to 254 mm" },
+          { description: "Measuring Range", material: "Adjustable pipe diameters 14 to 254 mm" },
           { description: "Media", material: "Compressed Air" },
           { description: "Pressure Rating", material: "16 bar (1.6 MPa)" },
           { description: "Burst Pressure", material: "64 bar (6.4 MPa)" },
+        ],
+      },
+      {
+        id: 13,
+        name: "3. Flowmeter For Fuel Gas Applications",
+        subCategory: "THERMAL MASS FLOW METER",
+        image: FuelGasThermalMass,
+        pdf: "/pdf/Flow/4.Thermalmass_FM.pdf",
+        tag: "ATEX Certified",
+        specs: [
+          { description: "Protection", material: "ATEX / IECEx Zone 1 & 2 Ex-Proof" },
+          { description: "Compatible Media", material: "Natural Gas, Biogas & Fuel Gases" },
+          { description: "Principle", material: "Direct Mass Flow (No Temp/Press Comp)" },
+          { description: "Outputs", material: "4-20mA, Pulse, RS485 Modbus" },
         ],
       },
     ],
