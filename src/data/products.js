@@ -492,8 +492,7 @@ const products = [
     image: HighAccuracyPressureTransmitter,
     description: "High accuracy relative pressure transmitter engineered for demanding industrial and railway applications with IP68/IP69K sealing, gold-plated contacts, and up to 150 bar burst pressure.",
     applicationTable: [
-      { property: "Special feature", values: ["Gold-plated contacts"] },
-      { property: "Application", values: ["for industrial applications; for railway applications"] },
+      { property: "Application", values: ["High Accuracy demanding Applications"] },
       { property: "Media", values: ["liquids and gases"] },
       { property: "Medium temperature [°C]", values: ["-25...90; (on request: -40...90 °C)"] },
       { property: "Min. burst pressure", values: ["150 bar", "2175 psi", "15 MPa"] },
