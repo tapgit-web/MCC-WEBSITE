@@ -496,8 +496,8 @@ const products = [
       { property: "Media", values: ["liquids and gases"] },
       { property: "Medium temperature [°C]", values: ["-25...90; (on request: -40...90 °C)"] },
       { property: "Min. burst pressure", values: ["150 bar", "2175 psi", "15 MPa"] },
-      { property: "Pressure rating", values: ["75 bar", "1088 psi", "7.5 MPa"] },
-      { property: "Type of pressure", values: ["relative pressure"] },
+      { property: "Pressure Range", values: ["-1 to 400 bar"] },
+      { property: "Type of pressure", values: ["Absolute & relative pressure"] },
     ],
   },
   {
