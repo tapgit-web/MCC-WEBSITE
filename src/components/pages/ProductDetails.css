@@ -282,12 +282,11 @@
 .cira-app-multivals {
   display: flex;
   align-items: center;
-  gap: clamp(1.5rem, 5vw, 4rem);
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
 .cira-app-val-item {
-  white-space: nowrap;
   font-variant-numeric: tabular-nums;
   color: #1e293b;
 }
