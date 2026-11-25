@@ -206,6 +206,7 @@
 .cira-spec-desc {
   font-weight: 600;
   color: var(--cira-navy-900);
+  text-transform: capitalize;
 }
 
 /* ==========================================================================
@@ -271,6 +272,7 @@
   vertical-align: middle;
   background: #fafbfc;
   border-right: 1px solid #edf2f7;
+  text-transform: capitalize;
 }
 
 .cira-app-vals {

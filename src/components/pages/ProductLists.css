@@ -952,6 +952,7 @@ a.cira-product-card:hover .cira-product-card__title,
   font-weight: 700;
   color: var(--cira-navy-900);
   white-space: nowrap;
+  text-transform: capitalize;
 }
 
 .cira-spec-val {
