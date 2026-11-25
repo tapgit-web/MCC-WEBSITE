@@ -327,7 +327,7 @@ const products = [
       "ATEX / IECEx certified explosion-proof flameproof enclosure for Zone 1 and Zone 2 hazardous areas",
       "Direct measurement of mass flow for natural gas, biogas, LPG, and combustible gas mixtures",
       "No external pressure or temperature compensation required",
-      "Wide dynamic turndown ratio (up to 100:1) for low-pressure boiler & furnace firing lines",
+      "Wide dynamic turndown ratio (up to 20:1) for low-pressure boiler & furnace firing lines",
       "Pulse, 4-20mA, and RS485 Modbus RTU communication outputs for networking",
       "Robust IP67 / IP68 ingress protection with flameproof terminal housing",
     ],
