@@ -473,11 +473,12 @@ const products = [
     image: CompactPressureTransmitter,
     description: "Compact stainless steel pressure transmitter engineered for demanding industrial liquid and gas applications with relative pressure measurement, 300 bar burst resistance, and vacuum capability.",
     applicationTable: [
+      { property: "Special feature", values: ["Compact design enables usage in confined space", "Two-wire system avoids complex wiring"] },
       { property: "Application", values: ["for industrial applications"] },
       { property: "Media", values: ["liquids and gases"] },
       { property: "Medium temperature [°C]", values: ["-40...90"] },
       { property: "Min. burst pressure", values: ["300 bar", "4350 psi", "30 MPa"] },
-      { property: "Pressure rating", values: ["25 bar", "360 psi", "2.5 MPa"] },
+      { property: "Range", values: ["Upto 600 bar"] },
       { property: "Note on pressure rating", values: ["static"] },
       { property: "Vacuum resistance", values: ["-1000 mbar", "-0.1 MPa"] },
       { property: "Type of pressure", values: ["relative pressure"] },
