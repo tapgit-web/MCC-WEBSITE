@@ -362,7 +362,7 @@ const products = [
     image: RadarLevel,
     description: "Continuous, non-contact radar level transmitter engineered for liquids, pastes, and sludges with high signal focusing, Bluetooth® wireless commissioning, and SIL2/SIL3 functional safety.",
     specifications: [
-      { no: 1, description: "Measuring Principle", material: "80 GHz Non-Contact Free Space Radar" },
+      { no: 1, description: "Measuring Principle", material: "Dielectric Reflection" },
       { no: 2, description: "Maximum Measuring Range", material: "Up to 50 m (164 ft)" },
       { no: 3, description: "Accuracy", material: "±1 mm (±0.04 in)" },
       { no: 4, description: "Process Connections", material: "Thread or mounting bracket" },
