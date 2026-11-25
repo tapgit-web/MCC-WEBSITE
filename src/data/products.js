@@ -344,7 +344,7 @@ const products = [
       { no: 2, description: "Explosion Protection", material: "ATEX / IECEx: II 2G Ex db IIC T4 Gb / II 2D Ex tb IIIC T130°C Db" },
       { no: 3, description: "Measurement Principle", material: "Thermal Dispersion / Direct Mass Flow" },
       { no: 4, description: "Compatible Gases", material: "Natural Gas, Biogas, Methane, LPG, Propane, Fuel Gas Mixtures" },
-      { no: 5, description: "Pipe Size Range", material: "DN15 to DN300 mm (Flanged & Insertion)" },
+      { no: 5, description: "Pipe Size Range", material: "Upto 150 mm" },
       { no: 6, description: "Accuracy", material: "±1.0% of reading (±0.5% full scale optional)" },
       { no: 7, description: "Process Connection", material: "Flanged End / Screwed / Wafer" },
       { no: 8, description: "Outputs & Networking", material: "Pulse, 4-20mA, and RS485 output" },
