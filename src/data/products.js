@@ -47,7 +47,7 @@ import TransmitterIntegralDisplay from "../components/images/product/pressure/Tr
 import TransmittersSanitaryApplication from "../components/images/product/pressure/Transmitters_Sanitary_Application.jpg"
 import TransmittersSubmersibleApplication from "../components/images/product/pressure/Transmitters_Submersible_Application.jpg"
 import TransmitterPneumaticApplication from "../components/images/product/pressure/Transmitter_Pneumatic_Application.jpg"
-import TransmittersHazardousApplication from "../components/images/product/pressure/Transmitters_Hazardous_Application.jpg"
+import TransmittersHazardousApplication from "../components/images/product/pressure/Transmitters_Hazardous_Application.png"
 //vibration
 import vibsensors from "../components/images/product/vibration/sensors.png"
 import vibvelocity from "../components/images/product/vibration/vib-velocity.png"
@@ -421,9 +421,8 @@ const products = [
     image: PointLevel,
     description: "Compact point level sensor engineered for reliable limit level detection and run-dry protection in liquids, viscous media, and powder with gold-plated contacts and up to 40 bar pressure resistance.",
     specifications: [
-      { no: 1, description: "Special Feature", material: "Gold-plated contacts" },
       { no: 2, description: "Media Compatibility", material: "Liquid and viscous media; powder" },
-      { no: 3, description: "Probe Length", material: "11 mm" },
+      { no: 3, description: "Probe Length", material: "Upto 150 mm" },
       { no: 4, description: "Tank Pressure", material: "-1 to 40 bar (-0.1 to 4 MPa)" },
       { no: 5, description: "MAWP (CRN)", material: "40 bar" },
       { no: 6, description: "Medium Temperature (Oil & Water)", material: "-40°C to +100°C" },
@@ -473,7 +472,6 @@ const products = [
     image: CompactPressureTransmitter,
     description: "Compact stainless steel pressure transmitter engineered for demanding industrial liquid and gas applications with relative pressure measurement, 300 bar burst resistance, and vacuum capability.",
     applicationTable: [
-      { property: "Special Feature", values: ["Compact design enables usage in confined space", "Two-wire system avoids complex wiring"] },
       { property: "Application", values: ["For industrial applications"] },
       { property: "Media", values: ["Liquids and gases"] },
       { property: "Medium Temperature [°C]", values: ["-40...90"] },
@@ -508,13 +506,12 @@ const products = [
     image: TransmitterIntegralDisplay,
     description: "Heavy-duty relative pressure transmitter with integral alphanumeric digital display and metallic thin film cell engineered for high-pressure industrial applications up to 800 bar rating and 1700 bar burst resistance.",
     applicationTable: [
-      { property: "Special Feature", values: ["Local pressure monitoring through inbuilt display", "Digital output indicators available for local monitoring"] },
       { property: "Measuring Element", values: ["Metallic thin film cell"] },
       { property: "Application", values: ["For industrial applications"] },
       { property: "Media", values: ["Liquids and gases"] },
       { property: "Medium Temperature [°C]", values: ["-25...80"] },
       { property: "Min. Burst Pressure", values: ["1700 bar", "24650 psi", "170 MPa"] },
-      { property: "Range", values: ["600 bar"] },
+      { property: "Range", values: ["-1 to 600 bar"] },
       { property: "Vacuum Resistance", values: ["-1000 mbar", "-0.1 MPa"] },
       { property: "Type Of Pressure", values: ["Relative pressure"] },
       { property: "MAWP For Applications According To CRN", values: ["800 bar", "11580 psi", "80 MPa"] },
@@ -535,7 +532,6 @@ const products = [
       { property: "Range", values: ["10000 mbar", "145 psi", "1000 kPa"] },
       { property: "Vacuum Resistance", values: ["-1000 mbar", "-0.1 MPa"] },
       { property: "Type Of Pressure", values: ["Relative pressure; vacuum"] },
-      { property: "No Dead Space", values: ["Yes"] },
       { property: "MAWP For Applications According To CRN [bar]", values: ["10"] },
     ],
   },
@@ -551,8 +547,8 @@ const products = [
       { property: "Application", values: ["For industrial applications"] },
       { property: "Media", values: ["Liquids"] },
       { property: "Medium Temperature [°C]", values: ["-10...50"] },
-      { property: "Min. Burst Pressure", values: ["2.4 bar", "35 psi", "240 kPa"] },
-      { property: "Range", values: ["2 bar", "29 psi", "200 kPa"] },
+      { property: "Min. Burst Pressure", values: ["2.4 bar"] },
+      { property: "Range", values: ["2 to 600 ba"] },
       { property: "Type Of Pressure", values: ["Relative pressure"] },
     ],
   },
@@ -580,7 +576,7 @@ const products = [
     type: "Pressure Measurement",
     price: 2999,
     image: TransmittersHazardousApplication,
-    description: "ATEX certified explosion-proof pressure transmitter engineered for hazardous areas and demanding process industries with 350° freely rotatable housing, local digital display, gold-plated contacts, and up to 350 bar burst safety.",
+    description: "ATEX, SIL & PESO certified explosion-proof pressure transmitter engineered for hazardous areas and demanding process industries with 350° freely rotatable housing, local digital display, gold-plated contacts, and up to 350 bar burst safety.",
     applicationTable: [
       { property: "Application", values: ["For industrial applications; For applications in hazardous areas"] },
       { property: "Installation", values: ["Freely rotatable housing 350°"] },
@@ -589,6 +585,7 @@ const products = [
       { property: "Min. Burst Pressure", values: ["350 bar", "5070 psi", "35 MPa"] },
       { property: "Range", values: ["100 bar", "1450 psi", "10 MPa"] },
       { property: "Type Of Pressure", values: ["Relative pressure; vacuum"] },
+      { property: "Certificate", values: ["SIL, ATEX, PESO"] },
     ],
   },
   {
