@@ -288,8 +288,8 @@ const CATEGORY_SHOWCASE = [
         name: "Temperature Measurement",
         slug: "temperature measurement",
         image: tempImg,
-        count: "3 Models",
-        subtitle: "Head mount transmitters, display sensors & compact inline transmitters.",
+        count: "4 Models",
+        subtitle: "Head mount transmitters, compact display sensors & non-contact infrared sensors.",
       },
       {
         name: "Vibration Monitoring",
