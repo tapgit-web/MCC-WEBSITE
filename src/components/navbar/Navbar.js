@@ -111,7 +111,7 @@ const MEGA_NAV_CATEGORIES = [
       {
         title: "Temperature Sensors & Transmitters",
         items: [
-          { name: "Head Mount Temperature Transmitter", path: "/product/43" },
+          { name: "FlexTop 2202 Temperature Transmitter", path: "/product/43" },
           { name: "Float Mount Temperature Sensor", path: "/product/44" },
         ],
       },

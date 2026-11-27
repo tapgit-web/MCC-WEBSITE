@@ -590,8 +590,7 @@ const products = [
   },
   {
     id: 43,
-    name: "Head Mount Temperature Transmitter",
-    subName: "FlexTop 2202 Temperature Transmitter",
+    name: "FlexTop 2202 Temperature Transmitter",
     type: "Temperature Measurement",
     price: 2999,
     image: Head1,
