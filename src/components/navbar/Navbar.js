@@ -106,13 +106,12 @@ const MEGA_NAV_CATEGORIES = [
     id: "temperature",
     label: "Temperature Measurement",
     slug: "temperature measurement",
-    badge: "2 Models",
+    badge: "1 Model",
     sections: [
       {
         title: "Temperature Sensors & Transmitters",
         items: [
           { name: "FlexTop 2202 Temperature Transmitter", path: "/product/43" },
-          { name: "Float Mount Temperature Sensor", path: "/product/44" },
         ],
       },
     ],

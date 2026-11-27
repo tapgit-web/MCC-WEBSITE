@@ -621,14 +621,6 @@ const products = [
     ],
   },
   {
-    id: 44,
-    name: "Float Mount ",
-    type: "Temperature Measurement",
-
-    price: 2999,
-    image: float1,
-  },
-  {
     id: 50,
     name: "2 Pcs Ball Valve",
     type: "Valve",
